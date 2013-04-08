@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="<%= @html_class %>">
 <head>
   <title>Hearts</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <header>
+    <%= render 'layouts/nav'%>
+    <div id="logo">
+      <%= link_to content_tag(:h1, "the Drunken Hearts"), root_path %>
+    </div>
+  </header>
+  <div id="content">
+    <div id="inner">
+        <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>
