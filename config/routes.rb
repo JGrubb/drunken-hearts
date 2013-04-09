@@ -1,4 +1,14 @@
 Hearts::Application.routes.draw do
+  get "shows/new"
+
+  get "shows/create"
+
+  get "shows/edit"
+
+  get "shows/update"
+
+  get "shows/delete"
+
   get "pages/index"
   controller :pages do
     get "pages/index"
