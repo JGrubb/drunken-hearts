@@ -2,26 +2,37 @@
 @import reset
 
 html 
-  background: url(bg-home.jpg) no-repeat center center fixed
+  background: url(image-path('bg-home.jpg')) no-repeat center center fixed
   -webkit-background-size: cover
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
+
+h1, h2, h3, h4
+  font-family: 'tradegothicbold'
 
 header 
   width: 760px
   margin: 0 auto
 
 nav#main 
-  padding-top: 1em
+  padding-top: 2em
   li 
     text-transform: uppercase
     float: left
-    margin-right: 2em
+    margin-right: 2.5em
+    padding-left: 0.75em
+    font-family: 'tradegothicbold'
+    list-style-image: url(image-path('nav-bullet.png'))
+    &.first
+      list-style-image: none
+      padding-left: 0.5em
     a 
       color: white
       font-size: 22px
       text-decoration: none
+      &:hover
+        color: $orange
 
 #logo 
   clear: left
@@ -34,9 +45,13 @@ nav#main
   height: 170px
   width: 240px
   display: inline-block
+  
 #content
   width: 760px
   margin: 0 auto
   background: rgba(255, 255, 255, 0.75)
+  
+html.home #content
+  background: none
 #content #inner
   padding: 1em 3em

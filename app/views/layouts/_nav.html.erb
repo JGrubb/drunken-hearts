@@ -1,9 +1,9 @@
 <nav id="main">
   <%= content_tag :ul do %>
-  <%= content_tag :li, link_to("Shows", "#") %>
+  <%= content_tag :li, link_to("Shows", "#"), :class => "first" %>
   <%= content_tag :li, link_to("Music", "#") %>
   <%= content_tag :li, link_to("Photos", "#") %>
   <%= content_tag :li, link_to("Band", "#") %>
-  <%= content_tag :li, link_to("Contact", "#"), :class => "last" %>
+  <%= content_tag :li, link_to("Contact", "#") %>
   <% end %>
 </nav>
