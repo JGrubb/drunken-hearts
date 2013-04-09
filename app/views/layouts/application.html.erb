@@ -15,7 +15,12 @@
   </header>
   <div id="content">
     <div id="inner">
-        <%= yield %>
+      <% flash.each do |key, value| %>
+        <div class='flash' id='<%= key %>'>
+          <%= value %>
+        </div>
+      <% end %>
+      <%= yield %>
     </div>
   </div>
 

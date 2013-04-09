@@ -1,15 +1,13 @@
 Hearts::Application.routes.draw do
-  get "shows/new"
-
-  get "shows/create"
-
-  get "shows/edit"
-
-  get "shows/update"
-
-  get "shows/delete"
-
-  get "pages/index"
+  
+  controller :shows do
+    get "shows/new"       => 'shows#new',     :as => :new_show
+    post "shows"          => 'shows#create'
+    get "shows/edit"
+    put "shows/update"    => 'shows#update', :as => :update
+    delete "shows/delete"
+  end
+  
   controller :pages do
     get "pages/index"
     get "shows"   => 'pages#shows',   :as => :shows
