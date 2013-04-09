@@ -1,5 +1,13 @@
 Hearts::Application.routes.draw do
   get "pages/index"
+  controller :pages do
+    get "pages/index"
+    get "shows"   => 'pages#shows',   :as => :shows
+    get "music"   => 'pages#music',   :as => :music
+    get "photos"  => 'pages#photos',  :as => :photos
+    get "band"    => 'pages#band',    :as => :band
+    get "contact" => 'pages#contact', :as => :contact
+  end
   
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 
