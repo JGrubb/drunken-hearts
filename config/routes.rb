@@ -1,7 +1,7 @@
 Hearts::Application.routes.draw do
   get "pages/index"
   
-  devise_for :users
+  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
