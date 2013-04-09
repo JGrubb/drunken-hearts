@@ -7,6 +7,10 @@ html
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
+  &.band
+    background-image: url(image-path('bg-band.jpg'))
+  &.shows
+    background-image: url(image-path('bg-shows.jpg'))
 
 h1, h2, h3, h4
   font-family: 'tradegothicbold'
@@ -38,7 +42,7 @@ nav#main
       color: white
       font-size: 22px
       text-decoration: none
-      &:hover
+      &:hover, &.active
         color: $orange
 
 #logo 
