@@ -1,5 +1,9 @@
 Hearts::Application.routes.draw do
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> e07c32d6c73493d044d07372a3debcb35c7edc4c
   controller :pages do
     get "pages/index"
     get "shows"   => 'pages#shows',   :as => :shows
@@ -11,8 +15,11 @@ Hearts::Application.routes.draw do
   
   resources :shows
   
+<<<<<<< HEAD
   resources :photos
   
+=======
+>>>>>>> e07c32d6c73493d044d07372a3debcb35c7edc4c
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 
   # The priority is based upon order of creation:
