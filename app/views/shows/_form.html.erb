@@ -1,8 +1,13 @@
-<%= simple_form_for @show do |f| %>
+<%= simple_form_for @show, :html => { :class => "show-form" } do |f| %>
 
+<div class="half-grid">
   <%= f.input :date, :as => :string %>
   <%= f.input :venue %>
   <%= f.input :city %>
+</div>
+<div class="half-grid">
+  <%= f.input :info, :as => :string, :input_html => { :class => "input-xlarge" } %>
+</div>
 
   <%= f.button :submit %>
   

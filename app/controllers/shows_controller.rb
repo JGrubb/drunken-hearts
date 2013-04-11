@@ -16,9 +16,17 @@ class ShowsController < ApplicationController
   end
 
   def edit
+    @show = Show.find(params[:id])
   end
 
   def update
+    @show = Show.find(params[:id])
+    if @show.update_attributes(params[:show])
+      redirect_to shows_path, :notice => "Nice job there, jimbo."
+    else
+      redirect_to edit_show_path(@show), :alert => "You screwed something up there, buddy."
+    end
+      
   end
 
   def delete
