@@ -1,13 +1,5 @@
 Hearts::Application.routes.draw do
   
-  controller :shows do
-    get "shows/new"       => 'shows#new',     :as => :new_show
-    post "shows"          => 'shows#create'
-    get "shows/edit"
-    put "shows/update"    => 'shows#update', :as => :update
-    delete "shows/delete"
-  end
-  
   controller :pages do
     get "pages/index"
     get "shows"   => 'pages#shows',   :as => :shows
@@ -16,6 +8,8 @@ Hearts::Application.routes.draw do
     get "band"    => 'pages#band',    :as => :band
     get "contact" => 'pages#contact', :as => :contact
   end
+  
+  resources :shows
   
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 
