@@ -7,6 +7,11 @@ html
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
+  background-attachment: fixed
+  &.band
+    background-image: url(image-path('bg-band.jpg'))
+  &.shows
+    background-image: url(image-path('bg-shows.jpg'))
 
 h1, h2, h3, h4
   font-family: 'tradegothicbold'
@@ -17,6 +22,12 @@ h1, h2, h3, h4
 
 h2
   font-size: 25px
+
+a.login
+  color: white
+  position: absolute
+  bottom: 5px
+  right: 5px
 
 header 
   width: 760px
@@ -38,8 +49,18 @@ nav#main
       color: white
       font-size: 22px
       text-decoration: none
-      &:hover
+      &:hover, &.active
         color: $orange
+    ul li
+      list-style-image: none
+      a
+        color: $orange
+        text-transform: none
+        font-family: 'lucida grande'
+        font-size: 16px
+        &:hover
+          background: none
+          
 
 #logo 
   clear: left
@@ -60,6 +81,11 @@ nav#main
   @include shadow (inset 3px 3px 5px rgba(0, 0, 0, 0.25))
   #inner
     padding: 2em
+    overflow: auto
+  .half-grid
+    width: 48%
+    margin-right: 2%
+    float: left
   
 html.home #content
   background: none
@@ -73,3 +99,21 @@ input.btn
   padding: 0.3em 1em
   &:hover
     @include gradient(#eee, #ccc)
+
+.show-form
+  overflow: auto
+    
+.show
+  font-size: 19px
+  font-family: 'tradegothicroman'
+  .date
+    text-transform: uppercase
+    
+#photos
+  .photo
+    max-width: 25%
+    float: left
+    img
+      max-width: 94%
+      margin: 3%
+      @include radius(3px)

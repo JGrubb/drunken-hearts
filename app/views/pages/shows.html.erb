@@ -1,5 +1,14 @@
 <h2 class="page-title">Upcoming Shows:</h2>
 
+<div id="shows">
 <% @shows.each do |show| %>
-  <%= debug show %>
+  <div class="show">
+    <p>
+      <span class="date"><%= show.date.strftime('%b %d')%></span> - <%= show.venue %> <%= "(#{show.info})" unless show.info.blank? %> // <%= show.city %>
+    </p>
+    <% if current_user %>
+    <%= link_to "edit", edit_show_path(show) %>
+    <% end %>
+  </div>
 <% end %>
+</div>
