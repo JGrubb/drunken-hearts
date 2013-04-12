@@ -45,6 +45,9 @@ GEM
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
+    jquery-fileupload-rails (0.4.1)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -87,7 +90,6 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    rmagick (2.13.2)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -121,11 +123,11 @@ PLATFORMS
 DEPENDENCIES
   carrierwave
   devise
+  jquery-fileupload-rails
   jquery-rails
   jquery-ui-rails
   mini_magick
   rails (= 3.2.13)
-  rmagick
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
