@@ -29,6 +29,12 @@ class ShowsController < ApplicationController
       
   end
 
-  def delete
+  def destroy
+    @show = Show.find(params[:id])
+    if @show.delete
+      redirect_to shows_path, :notice => "That show was gonna suck anyway."
+    else
+      redirect_to shows_path, :notice => "I'm not really sure how you could mess up deleting a show, so if this keeps happening you need to email me right now so I can check the logs and fix it."
+    end
   end
 end

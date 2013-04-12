@@ -4,11 +4,14 @@
 <% @shows.each do |show| %>
   <div class="show">
     <p>
-      <span class="date"><%= show.date.strftime('%b %d')%></span> - <%= show.venue %> <%= "(#{show.info})" unless show.info.blank? %> // <%= show.city %>
+      <span class="date"><%= show.date.strftime('%b %d')%></span> - <%= show.venue %> <%= "(#{show.info})" unless show.info.blank? %> // <%= show.city %> <% if current_user %>
+                                          <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
+                                                <%= link_to "delete", show_path(show), :class => "small", 
+                                                  :data => {  :method => :delete, 
+                                                              :confirm => "You sure you wanna delete this show?" } %>
+                                        <% end %>
     </p>
-    <% if current_user %>
-    <%= link_to "edit", edit_show_path(show) %>
-    <% end %>
+    
   </div>
 <% end %>
 </div>
