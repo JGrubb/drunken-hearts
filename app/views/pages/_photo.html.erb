@@ -1,0 +1,8 @@
+<div class="photo">
+  <%= link_to(image_tag(photo.image_url(:med)), photo.image_url(:full)) if photo.image? %>
+  <% if current_user %>
+  <div id="actions">
+    <%= link_to "edit", edit_photo_path(photo) %> | <%= link_to "delete", photo_path(photo), :data => { :method => :delete, :confirm => "You sure?" }%>
+  </div>
+  <% end %>
+</div>
