@@ -1,6 +1,6 @@
 <div id="photos">
   <% @photos.each do |photo| %>
-    <div class="photo"><%= link_to(image_tag(photo.image_url(:thumb)), photo.image_url(:full)) if photo.image? %></div>
+    <%= render 'photo', :photo => photo%>
   <% end %>
 </div>
 <% if current_user %>

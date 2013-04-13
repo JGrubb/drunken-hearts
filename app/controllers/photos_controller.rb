@@ -10,11 +10,19 @@ class PhotosController < ApplicationController
   end
 
   def edit
+    @photo = Photo.find params[:id]
   end
 
   def update
   end
 
-  def delete
+  def destroy
+    @photo = Photo.find(params[:id])
+    if @photo.delete
+      redirect_to photos_path
+    else
+      flash[:error] = "Screenshot and email me, please.  Not sure how that could've gone wrong."
+      redirect_to photos_path
+    end
   end
 end
