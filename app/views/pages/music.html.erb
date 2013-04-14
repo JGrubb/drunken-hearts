@@ -12,7 +12,15 @@
       </p>
     </div>
   </div>
-  <div class="half-grid">
-    
+  <div class="half-grid" id="songs">
+    <audio id="player" src="<%= @songs.first.recording_url %>" controls="true"></audio>
+    <div id="currently-playing">
+      <p></p>
+    </div>
+    <% @songs.each do |song| %>
+    <div class="song">
+      <%= link_to song.title, "#", :data => { :source => song.recording_url } %>
+    </div>
+    <% end %>
   </div>
 </div>

@@ -12,6 +12,8 @@ Hearts::Application.routes.draw do
   resources :shows
   
   resources :photos
+  
+  resources :songs
 
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 

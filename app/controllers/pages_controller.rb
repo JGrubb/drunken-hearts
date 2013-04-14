@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   
   def music
     @html_class = "shows"
+    @songs = Song.all
   end
   
   def photos
