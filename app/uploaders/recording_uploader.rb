@@ -1,10 +1,9 @@
 # encoding: utf-8
 
-class ImageUploader < CarrierWave::Uploader::Base
+class RecordingUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
   # include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
@@ -37,22 +36,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
-    process :resize_to_fill => [100, 100]
-  end
-  
-  version :med do
-    process :resize_to_fill => [176, 176]
-  end
-  
-  version :full do
-    process :resize_to_fit => [800, 800]
-  end
+  # version :thumb do
+  #   process :scale => [50, 50]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(mp3 ogg)
   end
 
   # Override the filename of the uploaded files:

@@ -1,6 +1,6 @@
 <%= simple_form_for @photo, :html => { :multipart => true } do |f| %>
 
-<%= f.input :image, :as => :file %>
+<%= image_tag(@photo.image_url(:thumb)) %>
 <%= f.input :caption %>
 
 <%= f.button :submit %>

@@ -1,5 +1,9 @@
 <div class="photo">
-  <%= link_to(image_tag(photo.image_url(:med)), photo.image_url(:full)) if photo.image? %>
+  <%= link_to(image_tag(photo.image_url(:med)), 
+              photo.image_url(:full), 
+              :title => photo.caption,
+              :rel => "fancybox-thumb",
+              :data => { :"fancybox-group" => "gallery" }) if photo.image? %>
   <% if current_user %>
   <div id="actions">
     <%= link_to "edit", edit_photo_path(photo) %> | <%= link_to "delete", photo_path(photo), :data => { :method => :delete, :confirm => "You sure?" }%>

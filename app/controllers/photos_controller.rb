@@ -14,6 +14,10 @@ class PhotosController < ApplicationController
   end
 
   def update
+    @photo = Photo.find(params[:id])
+    if @photo.update_attributes(params[:photo])
+      redirect_to photos_path
+    end
   end
 
   def destroy
