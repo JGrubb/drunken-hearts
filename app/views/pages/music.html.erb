@@ -19,7 +19,10 @@
     </div>
     <% @songs.each do |song| %>
     <div class="song">
-      <%= link_to song.title, "#", :data => { :source => song.recording_url, :title => song.title } %>
+      <%= link_to song.title, "#", :data => { :source => song.recording_url, :title => song.title }, :class => "title" %>
+      <% if current_user %>
+       | <%= link_to "delete", song_path(song), :data => { :confirm => "Are ya sure, Jimmy?", :method => :delete } %>
+      <% end %>
     </div>
     <% end %>
   </div>

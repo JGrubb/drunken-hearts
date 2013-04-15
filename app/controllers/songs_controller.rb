@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  before_filter :is_user
+  
   def new
     @song = Song.new
   end
@@ -16,6 +18,10 @@ class SongsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @song = Song.find(params[:id])
+    if @song.delete
+      redirect_to music_path
+    end
   end
 end

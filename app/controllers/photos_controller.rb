@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_filter :is_user
+  
   def new
     @photo = Photo.new
     render :nothing => true
