@@ -92,12 +92,14 @@ html.home #content
   background: none
   @include shadow(0 0 0 rgba(0, 0, 0, 0))
   
-input.btn
+input.btn, a.button
   @include radius(3px)
   border: 1px solid #888
   background: #eee
   font-weight: bold
   padding: 0.3em 1em
+  color: #444
+  text-decoration: none
   &:hover
     @include gradient(#eee, #ccc)
 

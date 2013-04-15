@@ -3,6 +3,8 @@
   <%= f.input :title %>
   <%= f.input :recording, :as => :file %>
   
-  <%= f.button :submit %>
+  <%= link_to "submit", music_path, :class => "button" %>
 
 <% end %>
+
+<div class="progress"><div class="bar" style="width: 0%; height:10px; background: green;"></div></div>

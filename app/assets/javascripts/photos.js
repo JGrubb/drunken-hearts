@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 jQuery(function(){
-  $('#new_photo').fileupload({
+  $('#new_photo, #new_song').fileupload({
     progressall: function(e, data) {
       console.log(data);
       var progress = parseInt(data.loaded / data.total * 100, 10);

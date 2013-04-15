@@ -7,6 +7,7 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(params[:song])
+    @song.title = @song.default_name
     if @song.save
       redirect_to music_path
     end
