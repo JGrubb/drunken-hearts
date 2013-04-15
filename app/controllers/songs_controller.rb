@@ -13,9 +13,16 @@ class SongsController < ApplicationController
   end
 
   def edit
+    @song = Song.find(params[:id])
   end
 
   def update
+    @song = Song.find(params[:id])
+    if @song.update_attributes(params[:song])
+      redirect_to music_path, :notice => "Good job."
+    else
+      redirect_to music_path, :error => "Email and screenshot or GTFO"
+    end
   end
 
   def destroy
