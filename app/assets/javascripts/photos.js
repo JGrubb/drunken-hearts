@@ -5,10 +5,8 @@ jQuery(function(){
   $('#new_photo').fileupload({
     progress: function(e, data) {
       console.log(data);
-      if(data.context) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        data.context.find('.bar').css('width', progress + '%');
-      }
+      var progress = parseInt(data.loaded / data.total * 100, 10);
+      $('.bar').css('width', progress + '%');
     }
   });
   $('#photos .photo a').fancybox({
