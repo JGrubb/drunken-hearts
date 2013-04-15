@@ -3,10 +3,19 @@
 
 jQuery(function(){
   $('#new_photo').fileupload({
-    progress: function(e, data) {
+    progressall: function(e, data) {
       console.log(data);
       var progress = parseInt(data.loaded / data.total * 100, 10);
-      $('.bar').css('width', progress + '%');
+      $('.bar').css({
+        'width': progress + '%',
+        'border': '1px solid #888'
+      });
+    },
+    done: function(e, data) {
+      $('.bar').css({
+        'width': '0px',
+        'border': 'none'
+      });
     }
   });
   $('#photos .photo a').fancybox({
