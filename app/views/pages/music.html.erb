@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="half-grid" id="songs">
-    <audio id="player" src="<%= @songs.first.recording_url %>" controls="true"></audio>
+    <audio id="player" src="<%= @songs.first.recording_url if @songs %>" controls="true"></audio>
     <div id="currently-playing">
       <p></p>
     </div>
