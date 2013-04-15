@@ -19,7 +19,7 @@
     </div>
     <% @songs.each do |song| %>
     <div class="song">
-      <%= link_to song.title, "#", :data => { :source => song.recording_url } %>
+      <%= link_to song.title, "#", :data => { :source => song.recording_url, :title => song.title } %>
     </div>
     <% end %>
   </div>

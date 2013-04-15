@@ -3,11 +3,16 @@
 
 jQuery(function(){
   $('.song a').click(function(e){
+    if(document.getElementById('active')) {
+      var current = document.getElementById('active');
+      current.id = null;
+    }
     var player = document.getElementById('player');
     player.src = $(this).data('source');
     player.controls = true;
     player.autoplay = true;
     player.style.width = "100%";
+    e.target.parentElement.id = "active";
     e.preventDefault();
   });
 });
