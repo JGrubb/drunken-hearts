@@ -7,13 +7,17 @@ jQuery(function(){
       console.log(data);
       var progress = parseInt(data.loaded / data.total * 100, 10);
       $('.bar').css({
-        'width': progress + '%',
+        'width': progress + '%'
+      });
+      $('.progress').css({
         'border': '1px solid #888'
       });
     },
     done: function(e, data) {
       $('.bar').css({
-        'width': '0px',
+        'width': '0px'
+      });
+      $('.progress').css({
         'border': 'none'
       });
     }
