@@ -12,6 +12,8 @@ gem 'simple_form'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'jquery-fileupload-rails'
+gem 'sidekiq'
+gem 'streamio-ffmpeg'
 
 # Gems used only for assets and not required
 # in production environments by default.
