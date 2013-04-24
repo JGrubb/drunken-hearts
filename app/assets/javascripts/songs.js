@@ -13,6 +13,10 @@ jQuery(function(){
   ogg.id = 'ogg';
   player.appendChild(mp3);
   player.appendChild(ogg);
+  
+  $('#player').bind('play', function(){
+    $('.song:first').attr('id', 'active');
+  });
 
   $('.song a').click(function(e){
     if(document.getElementById('active')) {
