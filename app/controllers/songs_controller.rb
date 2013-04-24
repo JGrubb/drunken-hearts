@@ -12,6 +12,7 @@ class SongsController < ApplicationController
       path = "#{Rails.root}/public#{@song.recording_url}"
       ogg = path.gsub(/mp3/, "ogg")
       yup = %x[ffmpeg -i #{path} -acodec libvorbis #{ogg}]
+      ConversionWorker.perform_async(@song.id)
 #logger.debug path
       redirect_to music_path
     end
