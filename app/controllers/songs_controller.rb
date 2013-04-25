@@ -9,9 +9,6 @@ class SongsController < ApplicationController
     @song = Song.new(params[:song])
     @song.title = @song.default_name unless @song.title
     if @song.save
-      path = "#{Rails.root}/public#{@song.recording_url}"
-      ogg = path.gsub(/mp3/, "ogg")
-      yup = %x[ffmpeg -i #{path} -acodec libvorbis #{ogg}]
       ConversionWorker.perform_async(@song.id)
 #logger.debug path
       redirect_to music_path
