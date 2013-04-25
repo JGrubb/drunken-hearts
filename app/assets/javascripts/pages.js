@@ -5,6 +5,7 @@
 jQuery(function($){
   $('a.btn-navbar').bind('click', function(){
     var nav = $('nav#main');
+    nav.insertAfter('#logo');
     if(nav.hasClass('visible')) {
       nav.slideUp(150).removeClass('visible');
     } else {
