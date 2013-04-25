@@ -11,4 +11,7 @@ jQuery(function($){
       nav.slideDown(150).addClass('visible');
     }
   });
+  $('a.dropdown-toggle').bind('click', function() {
+   $(this).next('.dropdown-menu').css('display', 'block');
+  });
 });
