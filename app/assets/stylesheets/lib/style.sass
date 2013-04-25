@@ -39,14 +39,16 @@ header
 a.btn-navbar
   font-size: 16px
   display: none
-  color: #444
+  color: #ddd
   font-style: bold
   position: absolute
   top: .25em
   right: .25em
-  @include gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.4))
+  background: rgba(0,0,0,0.6) url(image-path('menu.png')) 95% center no-repeat
   @include radius(3px)
+  @include shadow(inset 1px 1px 3px rgba(0,0,0,0.3))
   padding: 5px
+  padding-right: 1.5em
 
 @media screen and (max-width: 600px)
   a.btn-navbar
@@ -84,6 +86,14 @@ nav#main
   nav#main
     display: none
     padding-top: .5em
+    li
+      float: none
+      display: inline-block
+      width: 22%
+      margin-right: 0
+      padding: 0 1em
+      &.first
+        padding: 0 1em
 
 #logo 
   clear: left
@@ -98,7 +108,11 @@ nav#main
   display: inline-block
 @media screen and (max-width: 600px)
   #logo h1
-    
+    width: 85px
+    height: 60px
+    background-size: cover
+    margin-left: 2em
+    margin: .3em 0 .3em 2em
   
 #content
   @include container
