@@ -3,16 +3,15 @@
 // Pixels work just as well (ie 960 px).  I'm just on a fluid grid kick right now.
 
 // these are defaults and be overridden higher up in your actual stylesheets.
-$width: 960px
-$grid_cols: 12
-$gutters: 10px
-$tablet: 768px
+$width: 760px
+$grid_cols: 8
+$gutters: 25px
 $handheld: 480px
 
 // Lib
 
 @mixin container()
-  width: $width
+  max-width: $width
   margin: 0 auto
 
 @mixin grid($cols, $alpha: false, $omega: false)
@@ -23,25 +22,26 @@ $handheld: 480px
     $margin-left: 0
   @if $omega != false
     $margin-right: 0
-  display: inline
+  //display: inline
   float: left
   margin-left: $margin-left
   margin-right: $margin-right
-  @media screen and (max-width: $tablet)
-  @media screen and (max-width: $handheld)
+  @media screen and (max-width: 600px)
     float: none
-    width: auto
+    width: 90%
+    margin: 0 5%
+    display: block
 
 // Prefix, suffix to pad divs in
 
 @mixin prefix($cols)
   padding-left: (($width / $grid_cols) * $cols)
-  @media screen and (max-width: 480px)
+  @media screen and (max-width: 600px)
     padding: 0
   
 @mixin suffix($cols)
   padding-right: (($width / $grid_cols) * $cols)
-  @media screen and (max-width: 480px)
+  @media screen and (max-width: 600px)
     padding: 0
 
 @mixin push($cols)
