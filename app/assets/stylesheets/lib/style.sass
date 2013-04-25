@@ -36,6 +36,22 @@ img
 header 
   @include container
 
+a.btn-navbar
+  font-size: 16px
+  display: none
+  color: #444
+  font-style: bold
+  position: absolute
+  top: .25em
+  right: .25em
+  @include gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.4))
+  @include radius(3px)
+  padding: 5px
+
+@media screen and (max-width: 600px)
+  a.btn-navbar
+    display: inline-block
+
 nav#main 
   padding-top: 2em
   li 
@@ -63,7 +79,11 @@ nav#main
         font-size: 16px
         &:hover
           background: none
-          
+
+@media screen and (max-width: 600px)
+  nav#main
+    display: none
+    padding-top: .5em
 
 #logo 
   clear: left
