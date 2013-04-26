@@ -15,7 +15,7 @@ jQuery(function(){
     player.appendChild(mp3);
     player.appendChild(ogg);
     
-    $('#player').bind('play', function(){
+    $('#player').on('play', function(){
       $('.song:first').attr('id', 'active');
     });
 
