@@ -13,6 +13,14 @@ html
   &.shows
     background-image: url(image-path('bg-shows.jpg'))
 
+@media screen and (max-width: 600px)
+  html
+    background-image: url(image-path('bg-home-sm.jpg'))
+    &.band
+      background-image: url(image-path('bg-band-sm.jpg'))
+    &.shows
+      background-image: url(image-path('bg-shows-sm.jpg'))
+
 h1, h2, h3, h4
   font-family: 'tradegothicbold'
   padding-top: 0px
