@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   
   def shows
     @html_class = "shows"
-    @shows = Show.order("date ASC")
+    @shows = Show.where('date > ?', 1.day.ago).order("date ASC")
   end
   
   def music
