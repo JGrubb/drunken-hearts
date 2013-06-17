@@ -16,6 +16,7 @@ gem 'audiojs'
 gem 'sidekiq'
 #gem 'streamio-ffmpeg'
 #gem 'lamer'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
