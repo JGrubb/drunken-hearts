@@ -6,7 +6,8 @@
   <%= f.input :city %>
 </div>
 <div class="half-grid">
-  <%= f.input :info, :as => :string, :input_html => { :class => "input-xlarge" } %>
+  <%= f.input :info, :input_html => { :class => "input-xlarge", :rows => 3 } %>
+  <%= f.input :link %>
 </div>
 
   <%= f.button :submit %>

@@ -1,25 +1,25 @@
 <div id="shows">
   <h2 class="page-title">Upcoming Shows:</h2>
   <table>
-    <tr>
+    <tr id="header">
       <th>Date</th>
       <th>Venue</th>
       <th>Location</th>
       <th>Tickets</th>
     </tr>
-<% @shows.each do |show| %>
-  <tr class="show">
-    <td class="date"><%= show.date.strftime('%b %d')%></td>
-    <td><%= show.venue %><br />
-      <%= "(#{show.info})" unless show.info.blank? %></td>
-    <td><%= show.city %></td>
-    <td><%= show.link %>
-      <% if current_user %>
-      <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
-            <%= link_to "delete", show_path(show), :class => "small",  :data => {  :method => :delete, :confirm => "You sure you wanna delete this show?" } %>
-      <% end %>
-    </td>
-  </tr>
-<% end %>
+  <% @shows.each do |show| %>
+    <tr class="show">
+      <td class="date"><%= show.date.strftime('%b %d')%></td>
+      <td><%= show.venue %><br />
+        <span class="info"><%= "(#{show.info})" unless show.info.blank? %></span></td>
+      <td><%= show.city %></td>
+      <td><%= link_to "tickets", show.link, :class => "tickets" %>
+        <% if current_user %>
+        <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
+              <%= link_to "delete", show_path(show), :class => "small",  :data => {  :method => :delete, :confirm => "You sure you wanna delete this show?" } %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
   </table>
 </div>

@@ -156,17 +156,31 @@ input.btn, a.button
    
 #shows
   @include grid(8)
-  th
+  table
+    width: 100%
+  tr#header
     text-align: left
-
-.show
-  font-size: 19px
-  font-family: 'tradegothicroman'
-  overflow: auto
-  .date
-    text-transform: uppercase
-  a.small
-    font-size: 12px
+    border-bottom: 1px solid #888
+    font-size: 19px
+    font-family: 'tradegothicbold'
+    padding-bottom: 0.3em
+  tr.show
+    border-bottom: 1px solid #444
+    font-size: 19px
+    font-family: 'tradegothicbold'
+    overflow: auto
+    span.info
+      font-family: 'tradegothicroman'
+    .date
+      text-transform: uppercase
+    a.small
+      font-size: 12px
+    td
+      padding: 1em
+      padding-left: 0
+    a.tickets
+      text-transform: uppercase
+      color: $orange 
     
 #photos
   @include grid(8)
@@ -241,6 +255,10 @@ input.btn, a.button
     text-decoration: none
   p.first
     margin-top: 0px
+  p.bold
+    font-family: 'tradegothicbold'
+    font-size: 22px
+    letter-spacing: 2px
 
 footer
   padding: 2em 0
