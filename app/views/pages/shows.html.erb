@@ -10,10 +10,19 @@
   <% @shows.each do |show| %>
     <tr class="show">
       <td class="date"><%= show.date.strftime('%b %d')%></td>
-      <td><%= show.venue %><br />
-        <span class="info"><%= "(#{show.info})" unless show.info.blank? %></span></td>
+      <td>
+        <% if show.venue_link %>
+          <%= link_to show.venue, show.venue_link %>
+        <% else %>
+          <%= show.venue %>        
+        <% end %>
+        <span class="info"><br />
+<%= "(#{show.info})" unless show.info.blank? %></span></td>
       <td><%= show.city %></td>
-      <td><%= link_to "tickets", show.link, :class => "tickets" %>
+      <td>
+        <% if show.tickets_link %>
+          <%= link_to "tickets", show.tickets_link, :class => "tickets" %>
+        <% end %>
         <% if current_user %>
         <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
               <%= link_to "delete", show_path(show), :class => "small",  :data => {  :method => :delete, :confirm => "You sure you wanna delete this show?" } %>
