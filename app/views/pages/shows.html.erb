@@ -1,16 +1,25 @@
 <div id="shows">
-<h2 class="page-title">Upcoming Shows:</h2>
+  <h2 class="page-title">Upcoming Shows:</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Location</th>
+      <th>Tickets</th>
+    </tr>
 <% @shows.each do |show| %>
-  <div class="show">
-    <p>
-      <span class="date"><%= show.date.strftime('%b %d')%></span> - <%= show.venue %> <%= "(#{show.info})" unless show.info.blank? %> // <%= show.city %> <% if current_user %>
-                                          <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
-                                                <%= link_to "delete", show_path(show), :class => "small", 
-                                                  :data => {  :method => :delete, 
-                                                              :confirm => "You sure you wanna delete this show?" } %>
-                                        <% end %>
-    </p>
-    
-  </div>
+  <tr class="show">
+    <td class="date"><%= show.date.strftime('%b %d')%></td>
+    <td><%= show.venue %><br />
+      <%= "(#{show.info})" unless show.info.blank? %></td>
+    <td><%= show.city %></td>
+    <td><%= show.link %>
+      <% if current_user %>
+      <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
+            <%= link_to "delete", show_path(show), :class => "small",  :data => {  :method => :delete, :confirm => "You sure you wanna delete this show?" } %>
+      <% end %>
+    </td>
+  </tr>
 <% end %>
+  </table>
 </div>
