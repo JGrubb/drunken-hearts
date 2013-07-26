@@ -17,7 +17,7 @@
           <%= show.venue %>        
         <% end %>
         <span class="info"><br />
-<%= show.info unless show.info.blank? %></span></td>
+<%= simple_format show.info unless show.info.blank? %></span></td>
       <td><%= show.city %></td>
       <td>
         <% unless show.tickets_link.empty? %>

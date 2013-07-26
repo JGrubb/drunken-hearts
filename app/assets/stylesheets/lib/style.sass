@@ -184,7 +184,15 @@ input.btn, a.button
     a.tickets
       text-transform: uppercase
       color: $orange 
-    
+ 
+.show-form
+  .left-grid
+    @include grid(3)
+  .right-grid
+    @include grid(5)
+  textarea
+    width: 100%
+
 #photos
   @include grid(8)
   .photo
