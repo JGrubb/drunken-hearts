@@ -12,7 +12,7 @@
       <td class="date"><%= show.date.strftime('%b %d')%></td>
       <td>
         <% if show.venue_link %>
-          <%= link_to show.venue, show.venue_link %>
+          <%= link_to show.venue, show.venue_link, :target => "_new" %>
         <% else %>
           <%= show.venue %>        
         <% end %>
@@ -21,7 +21,7 @@
       <td><%= show.city %></td>
       <td>
         <% if show.tickets_link %>
-          <%= link_to "tickets", show.tickets_link, :class => "tickets" %>
+          <%= link_to "tickets", show.tickets_link, :class => "tickets", :target => "_new" %>
         <% end %>
         <% if current_user %>
         <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
