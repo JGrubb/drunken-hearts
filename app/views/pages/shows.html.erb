@@ -18,7 +18,7 @@
         <% end %>
         <span class="info"><br />
 <%= simple_format show.info unless show.info.blank? %></span></td>
-      <td><%= show.city %></td>
+      <td class="location"><%= show.city %></td>
       <td>
         <% unless show.tickets_link.empty? %>
           <%= link_to "tickets", show.tickets_link, :class => "tickets", :target => "_new" %>
