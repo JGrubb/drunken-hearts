@@ -171,6 +171,7 @@ input.btn, a.button
     overflow: auto
     span.info
       font-family: 'tradegothicroman'
+      font-size: 16px
     .date
       text-transform: uppercase
     a.small
@@ -178,10 +179,24 @@ input.btn, a.button
     td
       padding: 1em
       padding-left: 0
+      a
+        color: $orange
+      &.location
+        width: 120px
+      &.date
+        width: 75px
     a.tickets
       text-transform: uppercase
       color: $orange 
-    
+ 
+.show-form
+  .left-grid
+    @include grid(3)
+  .right-grid
+    @include grid(5)
+  textarea
+    width: 100%
+
 #photos
   @include grid(8)
   .photo
