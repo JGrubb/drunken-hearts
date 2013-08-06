@@ -6,7 +6,7 @@ Menu
   <%= content_tag :ul do %>
     <%= content_tag :li, link_to("Shows", shows_path, :class => "#{"active" if params[:action] == 'shows'}"), :class => "first" %>
     <%= content_tag :li, link_to("Music", music_path, :class => "#{"active" if params[:action] == 'music'}") %>
-    <%= content_tag :li, link_to("Photos", photos_path, :class => "#{"active" if params[:action] == 'photos'}") %>
+    <%= content_tag :li, link_to("Media", photos_path, :class => "#{"active" if params[:action] == 'photos'}") %>
     <%= content_tag :li, link_to("Band", band_path, :class => "#{"active" if params[:action] == 'band'}") %>
     <%= content_tag :li, link_to("Contact", contact_path, :class => "#{"active" if params[:action] == 'contact'}") %>
     <% if current_user %>
