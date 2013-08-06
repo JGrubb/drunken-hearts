@@ -2,16 +2,20 @@
 @import reset
 
 html 
-  background: url(image-path('bg-home.jpg')) no-repeat center center fixed
+  background: url(image-path('bg-band.jpg')) no-repeat center center fixed
   -webkit-background-size: cover
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
   background-attachment: fixed
-  &.band
-    background-image: url(image-path('bg-band.jpg'))
-  &.shows
-    background-image: url(image-path('bg-shows.jpg'))
+  &.home
+    background: url(image-path('bg-home.jpg')) no-repeat center center fixed
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+    background-attachment: fixed
+    
 
 @media screen and (max-width: 600px)
   html
@@ -208,6 +212,13 @@ input.btn, a.button
       @include radius(3px)
     #actions
       text-align: center
+
+#videos
+  margins-bottom: 2em
+.video
+  width: 48%
+  float: left
+  margin: 1em 1%
 #uploads
   @include grid(8)
 
@@ -219,6 +230,8 @@ input.btn, a.button
     text-align: center
   a.login
     text-align: right
+  .video
+    width: 100%
 
 #music
   //.border
@@ -264,7 +277,7 @@ input.btn, a.button
       
 #contact
   font-family: 'tradegothicroman'
-  font-size: 16px
+  font-size: 18px
   a
     color: black
     text-decoration: none
@@ -274,6 +287,8 @@ input.btn, a.button
     font-family: 'tradegothicbold'
     font-size: 22px
     letter-spacing: 1px
+  .half-grid
+    margin-right: 0
 
 footer
   padding: 2em 0
