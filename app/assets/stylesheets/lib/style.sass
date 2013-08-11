@@ -2,16 +2,20 @@
 @import reset
 
 html 
-  background: url(image-path('bg-home.jpg')) no-repeat center center fixed
+  background: url(image-path('bg-band.jpg')) no-repeat center center fixed
   -webkit-background-size: cover
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
   background-attachment: fixed
-  &.band
-    background-image: url(image-path('bg-band.jpg'))
-  &.shows
-    background-image: url(image-path('bg-shows.jpg'))
+  &.home
+    background: url(image-path('bg-home.jpg')) no-repeat center center fixed
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+    background-attachment: fixed
+    
 
 @media screen and (max-width: 600px)
   html
@@ -30,7 +34,7 @@ h1, h2, h3, h4
     text-transform: uppercase
 
 h2
-  font-size: 25px
+  font-size: 28px
 
 a.login
   color: white
@@ -161,17 +165,17 @@ input.btn, a.button
   tr#header
     text-align: left
     border-bottom: 1px solid #888
-    font-size: 19px
+    font-size: 24px
     font-family: 'tradegothicbold'
     padding-bottom: 0.3em
   tr.show
     border-bottom: 1px solid #444
-    font-size: 19px
+    font-size: 24px
     font-family: 'tradegothicbold'
     overflow: auto
     span.info
       font-family: 'tradegothicroman'
-      font-size: 16px
+      font-size: 18px
     .date
       text-transform: uppercase
     a.small
@@ -180,7 +184,9 @@ input.btn, a.button
       padding: 1em
       padding-left: 0
       a
-        color: $orange
+        color: #222
+        &:hover
+          color: $orange
       &.location
         width: 120px
       &.date
@@ -208,6 +214,16 @@ input.btn, a.button
       @include radius(3px)
     #actions
       text-align: center
+
+#videos
+  margin-bottom: 2em
+  @include grid(8)
+  padding-bottom: 1em
+  border-bottom: 1px solid #aaa
+.video
+  width: 50%
+  float: left
+  margin: 1em 0
 #uploads
   @include grid(8)
 
@@ -219,6 +235,9 @@ input.btn, a.button
     text-align: center
   a.login
     text-align: right
+  .video
+    width: 100%
+    margin-bottom: 1em
 
 #music
   //.border
@@ -264,7 +283,7 @@ input.btn, a.button
       
 #contact
   font-family: 'tradegothicroman'
-  font-size: 16px
+  font-size: 18px
   a
     color: black
     text-decoration: none
@@ -274,6 +293,8 @@ input.btn, a.button
     font-family: 'tradegothicbold'
     font-size: 22px
     letter-spacing: 1px
+  .half-grid
+    margin-right: 0
 
 footer
   padding: 2em 0
