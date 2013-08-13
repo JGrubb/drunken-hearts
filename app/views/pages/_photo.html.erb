@@ -1,5 +1,5 @@
 <div class="photo">
-  <%= link_to(image_tag(photo.image_url(:med)), 
+  <%= link_to(image_tag(photo.image_url(:med), :alt => photo.caption, :title => photo.caption), 
               photo.image_url(:full), 
               :title => photo.caption,
               :rel => "fancybox-thumb",
