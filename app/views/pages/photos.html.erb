@@ -1,3 +1,14 @@
+<div id="videos">
+  
+  <div class="video">
+    <object id="flashObj" width="355"" height="350" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=2327475044001&playerID=754609501001&playerKey=AQ~~,AAAAAFSLizo~,ugsvBtRv1stspIMlB9QBA-oPFwJPiSDq&domain=embed&dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" bgcolor="#FFFFFF" flashVars="videoId=2327475044001&playerID=754609501001&playerKey=AQ~~,AAAAAFSLizo~,ugsvBtRv1stspIMlB9QBA-oPFwJPiSDq&domain=embed&dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="355"" height="350" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" swLiveConnect="true" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></object>
+  </div>
+
+  <div class="video">
+    <object id="flashObj" width="355"" height="350" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=2327441353001&playerID=754609501001&playerKey=AQ~~,AAAAAFSLizo~,ugsvBtRv1stspIMlB9QBA-oPFwJPiSDq&domain=embed&dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1&isUI=1" bgcolor="#FFFFFF" flashVars="videoId=2327441353001&playerID=754609501001&playerKey=AQ~~,AAAAAFSLizo~,ugsvBtRv1stspIMlB9QBA-oPFwJPiSDq&domain=embed&dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="355"" height="350" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" allowScriptAccess="always" swLiveConnect="true" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></object>
+  </div>
+
+</div>
 <div id="photos">
   <% @photos.each do |photo| %>
     <%= render 'photo', :photo => photo %>
@@ -5,7 +16,7 @@
 </div>
 <% if current_user %>
 <div id="uploads">
-  <%= form_for Photo.new do |f| %>
+  <%= form_for Photo.new, :url => "/photos" do |f| %>
     <%= file_field_tag :image, :multiple => true, :name => "photo[image]" %>
   <% end %>
   <div class="progress"><div class="bar" style="width: 0%; height:10px; background: green;"></div></div>

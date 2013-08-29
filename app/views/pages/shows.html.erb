@@ -1,17 +1,38 @@
-<h2 class="page-title">Upcoming Shows:</h2>
-
 <div id="shows">
-<% @shows.each do |show| %>
-  <div class="show">
-    <p>
-      <span class="date"><%= show.date.strftime('%b %d')%></span> - <%= show.venue %> <%= "(#{show.info})" unless show.info.blank? %> // <%= show.city %> <% if current_user %>
-                                          <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
-                                                <%= link_to "delete", show_path(show), :class => "small", 
-                                                  :data => {  :method => :delete, 
-                                                              :confirm => "You sure you wanna delete this show?" } %>
-                                        <% end %>
-    </p>
-    
-  </div>
-<% end %>
+  <h2 class="page-title">Upcoming Shows:</h2>
+  <table>
+    <tr id="header">
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Location</th>
+      <th>Tickets</th>
+    </tr>
+  <% @shows.each do |show| %>
+    <tr itemscope itemtype="http://schema.org/Event" class="show">
+      <td itemprop="startDate" content="<%= show.date %>" class="date"><%= show.date.strftime('%b %d')%></td>
+      <td>
+        <% if show.venue_link %>
+          <%= link_to content_tag(:span, show.venue, :itemprop => "name"), show.venue_link, :target => "_new" %>
+        <% else %>
+          <%= content_tag(:span, show.venue, :itemprop => "name") %>        
+        <% end %>
+        <br />
+<%= content_tag(:span, simple_format(show.info), :itemprop => "description", :class => "info") unless show.info.blank? %></td>
+      <span itemprop="location" itemscope itemtype="http://schema.org/Place">
+        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <td itemprop="addressLocality" class="location"><%= show.city %></td>
+        </span>
+      </span>
+      <td>
+        <% unless show.tickets_link.empty? %>
+          <%= link_to "tickets", show.tickets_link, :class => "tickets", :target => "_new", :itemprop => "url" %>
+        <% end %>
+        <% if current_user %>
+        <br /><%= link_to "edit", edit_show_path(show), :class => "small" %> |
+              <%= link_to "delete", show_path(show), :class => "small",  :data => {  :method => :delete, :confirm => "You sure you wanna delete this show?" } %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
 </div>

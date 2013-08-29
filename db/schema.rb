@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414190218) do
+ActiveRecord::Schema.define(:version => 20130725113205) do
 
   create_table "photos", :force => true do |t|
     t.string   "caption"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(:version => 20130414190218) do
     t.date     "date"
     t.string   "venue"
     t.string   "city"
-    t.string   "link"
+    t.string   "venue_link"
     t.text     "info"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "tickets_link"
   end
 
   create_table "songs", :force => true do |t|

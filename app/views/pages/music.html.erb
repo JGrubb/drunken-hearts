@@ -1,25 +1,23 @@
 <div id="music">
   <div class="half-grid">
     <div class="border">
-      <%= image_tag image_path('album-cover.jpg') %>
+      <%= image_tag image_path('album-cover.jpg'), :class => "album-cover" %>
       <p class="album-info">
-        Written by Andrew McConathy<br />
-        Arranged by Andrew McConathy, Scott Law &amp; Tim Carbone<br />
         Produced by Tim Carbone<br />
-        Mixed by Tim Carbone &amp; Don Sternecker at Mix-o-Lydian Recording Studios<br />
-        Mastered by Mark Dann at Mark Dann Recording Studio<br />
         &copy; Kaleidoscopic Songs, LLC
       </p>
     </div>
   </div>
   <div class="half-grid" id="songs">
-    <% unless @songs.empty? %><audio id="player" src="<%= @songs.first.recording_url %>" controls="true"></audio><% end %>
+    <div id="player-div">
+      <% unless @songs.empty? %><audio id="player" controls></audio><% end %>
+    </div>
     <div id="currently-playing">
       <p></p>
     </div>
     <% @songs.each do |song| %>
     <div class="song">
-      <%= link_to song.title, "#", :data => { :source => song.recording_url, :title => song.title }, :class => "title" %>
+      <%= link_to song.title, "#", :data => { :source => song.recording_url.gsub(/\.mp3$/, ''), :title => song.title }, :class => "title" %>
       <% if current_user %>
        | <%= link_to "delete", song_path(song), :data => { :confirm => "Are ya sure, Jimmy?", :method => :delete } %>
       <% end %>

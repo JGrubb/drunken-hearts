@@ -4,7 +4,7 @@ Hearts::Application.routes.draw do
     get "pages/index"
     get "shows"   => 'pages#shows',   :as => :shows
     get "music"   => 'pages#music',   :as => :music
-    get "photos"  => 'pages#photos',  :as => :photos
+    get "media"   => 'pages#photos',  :as => :photos
     get "band"    => 'pages#band',    :as => :band
     get "contact" => 'pages#contact', :as => :contact
   end
