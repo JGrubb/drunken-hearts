@@ -37,6 +37,17 @@ describe PhotosController do
         expect(response).to redirect_to new_user_session_path
       end
     end
+  end
+
+  describe "POST create" do
+
+  end
+
+  describe "PUT update" do
+
+  end
+
+  describe "DELETE destroy" do
 
   end
 
