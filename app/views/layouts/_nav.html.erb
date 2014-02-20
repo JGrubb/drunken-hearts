@@ -11,7 +11,7 @@ Menu
     <%= content_tag :li, link_to("Contact", contact_path, :class => "#{"active" if params[:action] == 'contact'}") %>
     <% if current_user %>
       <%= content_tag :li, :class => "dropdown" do %>
-        <%= link_to "Admin", "#", :class => "dropdown-toggle", :data => { :toggle => "dropdown" } %>
+        <%= link_to "Admin", "#", :class => "dropdown-toggle" %>
         <%= content_tag :ul, :class => "dropdown-menu" do %>
           <%= content_tag :li, link_to("New Show", new_show_path) %>
           <%= content_tag :li, link_to("New Song", new_song_path) %>

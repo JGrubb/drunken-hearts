@@ -66,6 +66,7 @@ a.btn-navbar
   a.btn-navbar
     display: inline-block
 
+
 nav#main 
   padding-top: 2em
   margin-bottom: .7em
@@ -86,16 +87,26 @@ nav#main
       text-decoration: none
       &:hover, &.active
         color: $orange
-    ul li
-      list-style-image: none
-      a
-        color: $orange
-        text-transform: none
-        font-family: 'lucida grande'
-        font-size: 16px
-        &:hover
-          background: none
-
+    ul
+      position: absolute
+      background: rgba(255, 255, 255, 0.7)
+      display: none
+  li li
+    list-style-image: none
+    display: block
+    padding: .3em
+    width: 15em
+    margin: 0
+    float: none
+    a
+      color: $orange
+      text-transform: none
+      font-family: 'lucida grande'
+      font-size: 16px
+      display: block
+      padding: .5em 1em
+      &:hover
+        background: rgba(255, 255, 255, 0.5)
 @media screen and (max-width: 600px)
   nav#main
     display: none
@@ -299,6 +310,18 @@ input.btn, a.button
     letter-spacing: 1px
   .half-grid
     margin-right: 0
+
+form
+  padding: 1em 2em
+
+input[type=text],
+textarea
+  margin: 1em 0
+  max-width: 100%
+  font-size: 1.2em
+  padding: .4em
+  border-radius: 3px
+  border: 1px solid #bbb
 
 footer
   padding: 2em 0

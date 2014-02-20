@@ -3,17 +3,10 @@
 // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery(function($){
-  $('a.btn-navbar').bind('click', function(){
+  $('a.btn-navbar').on('click', function(){
     var nav = $('nav#main');
     nav.insertAfter('#logo');
-    if(nav.hasClass('visible')) {
-      nav.slideUp(150).removeClass('visible');
-    } else {
-      nav.slideDown(150).addClass('visible');
-    }
-  });
-  $('a.dropdown-toggle').bind('click', function() {
-   $(this).next('.dropdown-menu').css('display', 'block');
+    nav.slideToggle(150).toggleClass('visible');
   });
   var centerLogo = function() {
     $('html.home #logo h1').css({

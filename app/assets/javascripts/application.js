@@ -15,3 +15,9 @@
 //= require jquery-fileupload/basic
 //= require audiojs
 //= require_tree .
+
+jQuery(function($) {
+  $('.dropdown').on('click', function(e) {
+    $('ul.dropdown-menu', this).toggle();
+  });
+});

@@ -19,6 +19,8 @@
   <%= form_for Photo.new, :url => "/photos" do |f| %>
     <%= file_field_tag :image, :multiple => true, :name => "photo[image]" %>
   <% end %>
-  <div class="progress"><div class="bar" style="width: 0%; height:10px; background: green;"></div></div>
+  <div class="progress">
+    <div class="bar" style="width: 0%; height: 20px; background; green;"></div>
+  </div>
 </div>
 <% end %>

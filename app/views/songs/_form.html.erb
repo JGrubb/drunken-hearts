@@ -1,9 +1,9 @@
-<%= simple_form_for @song do |f| %>
+<%= simple_form_for @song, url: songs_path do |f| %>
 
   <%= f.input :title %>
   <%= f.input :recording, :as => :file %>
   
-  <%= link_to "submit", music_path, :class => "button" %>
+  <%= f.button :submit, :class => "button" %>
 
 <% end %>
 
