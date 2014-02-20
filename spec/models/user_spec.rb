@@ -8,8 +8,8 @@ describe User do
   end
 
   it "is invalid if that email has already been used" do
-    user1 = create(:user)
-    user2 = build(:user)
+    user1 = create(:user, email: "test@example.com" )
+    user2 = build(:user, email: "test@example.com" )
     expect(user2).to have(1).error_on :email
   end
 

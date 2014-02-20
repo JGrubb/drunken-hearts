@@ -40,6 +40,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'rb-fsevent'
+  gem 'faker'
 end
 
 # To use ActiveModel has_secure_password
