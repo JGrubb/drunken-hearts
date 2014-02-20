@@ -30,8 +30,16 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-group :development do
+group :development, :test do
   gem 'quiet_assets'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'rb-fsevent'
 end
 
 # To use ActiveModel has_secure_password
