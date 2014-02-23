@@ -6,7 +6,7 @@ class ShowsController < ApplicationController
   end
 
   def create
-    @show = Show.new(params[:show])
+    @show = Show.new(show_params)
     if @show.save
       flash[:notice] = "Nice job, Jim."
       redirect_to shows_path
@@ -22,7 +22,7 @@ class ShowsController < ApplicationController
 
   def update
     @show = Show.find(params[:id])
-    if @show.update_attributes(params[:show])
+    if @show.update(show_params)
       redirect_to shows_path, :notice => "Nice job there, jimbo."
     else
       redirect_to edit_show_path(@show), :alert => "You screwed something up there, buddy."
@@ -38,4 +38,11 @@ class ShowsController < ApplicationController
       redirect_to shows_path, :notice => "I'm not really sure how you could mess up deleting a show, so if this keeps happening you need to email me right now so I can check the logs and fix it."
     end
   end
+
+  private
+
+  def show_params
+    params.require(:show).permit(:city, :date, :info, :tickets_link, :venue, :venue_link)
+  end
+
 end

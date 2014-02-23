@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.create(params[:photo])
+    @photo = Photo.create(photo_params)
     render :nothing => true
   end
 
@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
 
   def update
     @photo = Photo.find(params[:id])
-    if @photo.update_attributes(params[:photo])
+    if @photo.update_attributes(photo_params)
       redirect_to photos_path
     end
   end
@@ -31,4 +31,12 @@ class PhotosController < ApplicationController
       redirect_to photos_path
     end
   end
+
+  private
+
+  def photo_params
+    params.require(:photo).permit(:caption, :image)
+  end
+
 end
+

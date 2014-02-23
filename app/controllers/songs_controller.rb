@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(params[:song])
+    @song = Song.new(song_params)
     @song.title = @song.default_name unless @song.title
     if @song.save
       ConversionWorker.perform_async(@song.id)
@@ -21,7 +21,7 @@ class SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id])
-    if @song.update_attributes(params[:song])
+    if @song.update(song_params)
       redirect_to music_path, :notice => "Good job."
     else
       redirect_to music_path, :error => "Email me about this, plz"
@@ -36,4 +36,11 @@ class SongsController < ApplicationController
       redirect_to music_path, :error => "Email me about this, plz"
     end
   end
+
+  private
+
+  def song_params
+    params.require(:song).permit(:title, :recording)
+  end
+
 end
