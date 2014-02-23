@@ -9,11 +9,11 @@ Hearts::Application.routes.draw do
     get "contact" => 'pages#contact', :as => :contact
   end
   
-  resources :shows
+  resources :shows, except: [ :index, :show ]
   
-  resources :photos
+  resources :photos, except: [ :index, :show ]
   
-  resources :songs
+  resources :songs, except: [ :index, :show ]
 
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 

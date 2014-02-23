@@ -101,4 +101,33 @@ describe PhotosController do
     end
   end
 
+  describe "photos routing" do
+    it "routes to #new" do
+      expect(:get => 'photos/new').to route_to(:controller => "photos", :action => "new")
+    end
+
+    it "routes to #edit" do
+      expect(:get => 'photos/1/edit').to route_to(:controller => "photos", :action => "edit", :id => "1")
+    end
+
+    it "routes to #destroy" do
+      expect(:delete => 'photos/1').to route_to(:controller => "photos", :action => "destroy", :id => "1")
+    end
+
+    it "routes to #update" do
+      expect(:put => 'photos/1').to route_to(:controller => "photos", :action => "update", :id => "1")
+    end
+
+    it "routes to #create" do
+      expect(:post => 'photos').to route_to(:controller => "photos", :action => "create")
+    end
+
+    it "does not route to #index" do
+      expect(:get => 'photos').to_not route_to(:controller => "photos", :action => "index")
+    end
+
+    it "does not route to #show" do
+      expect(:get => 'photos/1').to_not route_to(:controller => "photos", :action => "show", :id => "1")
+    end
+  end
 end

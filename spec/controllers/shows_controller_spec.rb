@@ -171,4 +171,33 @@ describe ShowsController do
       end
     end
   end
+  describe "shows routing" do
+    it "routes to #new" do
+      expect(:get => 'shows/new').to route_to(:controller => "shows", :action => "new")
+    end
+
+    it "routes to #edit" do
+      expect(:get => 'shows/1/edit').to route_to(:controller => "shows", :action => "edit", :id => "1")
+    end
+
+    it "routes to #destroy" do
+      expect(:delete => 'shows/1').to route_to(:controller => "shows", :action => "destroy", :id => "1")
+    end
+
+    it "routes to #update" do
+      expect(:put => 'shows/1').to route_to(:controller => "shows", :action => "update", :id => "1")
+    end
+
+    it "routes to #create" do
+      expect(:post => 'shows').to route_to(:controller => "shows", :action => "create")
+    end
+
+    it "does not route to #index" do
+      expect(:get => 'shows').to_not route_to(:controller => "shows", :action => "index")
+    end
+
+    it "does not route to #show" do
+      expect(:get => 'shows/1').to_not route_to(:controller => "shows", :action => "show", :id => "1")
+    end
+  end
 end
