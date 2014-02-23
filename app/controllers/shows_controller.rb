@@ -12,7 +12,7 @@ class ShowsController < ApplicationController
       redirect_to shows_path
     else
       flash[:error] = "Not sure what happened there, but try it again.  Date, show, and venue are all required."
-      redirect_to new_show_path
+      render :new
     end
   end
 
