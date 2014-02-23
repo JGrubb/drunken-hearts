@@ -66,98 +66,20 @@ describe SongsController do
     end
 
     context "Random Joe" do
-      it "prevents Random Joe from creating new songs" do
-        expect {
-          post :create, { song: attributes_for(:song) }
-        }.to change(Song, :count).by 0
-      end
 
-      it "redirects Joe to the login page" do
-        post :create, { song: attributes_for(:song) }
-        expect(response).to redirect_to new_user_session_path
-      end
     end
   end
 
   describe "GET edit" do
-    context "Authorized user" do
-      login_user
 
-      before :each do
-        @song = create :song
-        get :edit, { id: @song.id }
-      end
-
-      it "assigns the song to @song" do
-        expect(assigns(:song)).to eq(@song)
-      end
-
-      it "renders the edit template" do
-        expect(response).to render_template :edit
-      end
-    end
-
-    context "Random Joe" do
-      it "redirects Joe to the login path" do
-        get :edit, { id: 1 }
-        expect(response).to redirect_to new_user_session_path
-      end
-    end
   end
 
   describe "PUT update" do
-    context "Authorized user" do
-      login_user
 
-      before :each do
-        @song = create :song
-      end
-
-      it "updates the requested song" do
-        expect_any_instance_of(Song).to receive(:update)
-        put :update, { id: @song.id, song: { title: "Ascending" } }
-      end
-
-      it "redirects_to music_path" do
-        put :update, { id: @song.id, song: attributes_for(:song) }
-        expect(response).to redirect_to music_path
-      end
-    end
-
-    context "Random Joe" do
-      it "redirects Joe to the login path" do
-        put :update, { id: 1, song: attributes_for(:song) }
-        expect(response).to redirect_to new_user_session_path
-      end
-    end
   end
 
   describe "DELETE destroy" do
-    context "Authorized user" do
-      login_user
 
-      before :each do
-        @song = create :song
-      end
-
-      it "deletes the requested song" do
-        expect {
-          delete :destroy, { id: @song.id }
-        }.to change(Song, :count).by -1
-      end
-
-      it "redirects to the music_path" do
-        delete :destroy, { id: @song.id }
-        expect(response).to redirect_to music_path
-      end
-    end
-
-    context "Random Joe" do
-      it "tells joe to login" do
-        delete :destroy, { id: 1 }
-        expect(response).to redirect_to new_user_session_path
-      end
-    end
   end
 
   describe "songs routing" do

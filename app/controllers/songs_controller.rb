@@ -24,7 +24,7 @@ class SongsController < ApplicationController
     if @song.update_attributes(params[:song])
       redirect_to music_path, :notice => "Good job."
     else
-      redirect_to music_path, :error => "Email and screenshot or GTFO"
+      redirect_to music_path, :error => "Email me about this, plz"
     end
   end
 
@@ -32,6 +32,8 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     if @song.delete
       redirect_to music_path
+    else
+      redirect_to music_path, :error => "Email me about this, plz"
     end
   end
 end

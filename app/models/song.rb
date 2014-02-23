@@ -3,7 +3,7 @@ class Song < ActiveRecord::Base
   
   attr_accessible :recording, :title
   mount_uploader :recording, RecordingUploader
-  validates_presence_of :title, :recording
+  validates_presence_of :recording
   
   def default_name
     self.title ||= File.basename(recording.filename, '.*').titleize if recording
