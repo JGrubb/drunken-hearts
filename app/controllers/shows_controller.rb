@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-  before_filter :is_user
+  before_filter :is_admin?
   
   def new
     @show = Show.new

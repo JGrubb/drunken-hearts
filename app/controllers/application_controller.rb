@@ -4,4 +4,9 @@ class ApplicationController < ActionController::Base
   def is_user
     authenticate_user!
   end
+
+  def is_admin?
+    authenticate_user! && current_user.is_admin?
+  end
+
 end

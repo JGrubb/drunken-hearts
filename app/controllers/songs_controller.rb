@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :is_user
+  before_filter :is_admin?
   
   def new
     @song = Song.new
