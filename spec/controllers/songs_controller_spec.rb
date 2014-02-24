@@ -5,7 +5,7 @@ describe SongsController do
 
   describe "GET new" do
     context "Authorized user" do
-      login_user
+      login_admin
       it "assigns a new song to @song" do
         song = Song.new
         get :new
@@ -28,7 +28,7 @@ describe SongsController do
 
   describe "POST create" do
     context "Authorized user" do
-      login_user
+      login_admin
 
       it "creates a new song" do
         expect {
@@ -81,7 +81,7 @@ describe SongsController do
 
   describe "GET edit" do
     context "Authorized user" do
-      login_user
+      login_admin
 
       before :each do
         @song = create :song
@@ -107,7 +107,7 @@ describe SongsController do
 
   describe "PUT update" do
     context "Authorized user" do
-      login_user
+      login_admin
 
       before :each do
         @song = create :song
@@ -134,7 +134,7 @@ describe SongsController do
 
   describe "DELETE destroy" do
     context "Authorized user" do
-      login_user
+      login_admin
 
       before :each do
         @song = create :song

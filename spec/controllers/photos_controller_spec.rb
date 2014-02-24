@@ -6,7 +6,7 @@ describe PhotosController do
   describe "GET edit" do
 
     context "Auth user" do
-      login_user
+      login_admin
 
       before :each do
         @photo = create(:photo)
@@ -41,7 +41,7 @@ describe PhotosController do
 
   describe "POST create" do
     context "Auth user" do
-      login_user
+      login_admin
 
       describe "with valid parameters" do
         
@@ -73,7 +73,7 @@ describe PhotosController do
   end
 
   describe "PUT update" do
-    login_user
+    login_admin
 
     it "redirects to the photos_path" do
       photo = create :photo
@@ -83,7 +83,7 @@ describe PhotosController do
   end
 
   describe "DELETE destroy" do
-    login_user
+    login_admin
 
     before :each do
       @photo = create :photo

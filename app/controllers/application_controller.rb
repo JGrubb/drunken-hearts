@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    authenticate_user! && current_user.is_admin?
+    authenticate_user!
+    unless current_user.is_admin
+      flash[:alert] = "You must be an administrator to go there"
+      redirect_to root_path
+    end
   end
 
 end

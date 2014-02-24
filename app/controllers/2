@@ -4,7 +4,7 @@ describe ShowsController do
 
   describe "GET new" do
     context "Authorized user" do
-      login_admin
+      #login_user
 
       before :each do
         @show = Show.new
@@ -35,7 +35,7 @@ describe ShowsController do
 
   describe "POST create" do
     context "Authorized user" do
-      login_admin
+      login_user
 
       it "creates a new show" do
         expect {
@@ -86,7 +86,7 @@ describe ShowsController do
 
   describe "GET edit" do
     context "Authorized user" do
-      login_admin
+      login_user
 
       before :each do
         @show = create :show
@@ -120,7 +120,7 @@ describe ShowsController do
 
   describe "PUT update" do
     context "Authorized user" do
-      login_admin
+      login_user
 
       before :each do
         @show = create :show
@@ -145,7 +145,7 @@ describe ShowsController do
 
   describe "DELETE destroy" do
     context "Authorized user" do
-      login_admin
+      login_user
 
       before :each do
         @show = create :show
