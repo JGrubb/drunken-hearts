@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224122108) do
+ActiveRecord::Schema.define(version: 20140225215709) do
 
   create_table "photos", force: true do |t|
     t.string   "caption"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20140224122108) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "products", force: true do |t|
+    t.string   "title"
+    t.string   "download"
+    t.text     "description"
+    t.integer  "price"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["slug"], name: "index_products_on_slug"
 
   create_table "shows", force: true do |t|
     t.date     "date"
