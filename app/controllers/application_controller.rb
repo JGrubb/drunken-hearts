@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     authenticate_user!
   end
 
-  def is_admin?
+  def admin_only
     authenticate_user!
     unless current_user.is_admin
       flash[:alert] = "You must be an administrator to go there"

@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :is_admin?
+  before_filter :admin_only
   
   def new
     @photo = Photo.new

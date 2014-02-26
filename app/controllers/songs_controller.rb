@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :is_admin?
+  before_filter :admin_only
   
   def new
     @song = Song.new
@@ -10,7 +10,6 @@ class SongsController < ApplicationController
     @song.title = @song.default_name unless @song.title
     if @song.save
       ConversionWorker.perform_async(@song.id)
-#logger.debug path
       redirect_to music_path
     end
   end

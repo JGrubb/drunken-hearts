@@ -15,6 +15,8 @@ Hearts::Application.routes.draw do
   
   resources :songs, except: [ :index, :show ]
 
+  resources :products, except: [ :index ]
+
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 
   # The priority is based upon order of creation:
