@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140225220017) do
 
   create_table "product_images", force: true do |t|
     t.integer  "product_id"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
