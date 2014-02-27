@@ -9,7 +9,7 @@ Menu
     <%= content_tag :li, link_to("Media", photos_path, :class => "#{"active" if params[:action] == 'photos'}") %>
     <%= content_tag :li, link_to("Band", band_path, :class => "#{"active" if params[:action] == 'band'}") %>
     <%= content_tag :li, link_to("Contact", contact_path, :class => "#{"active" if params[:action] == 'contact'}") %>
-    <% if current_user %>
+    <% if user_signed_in? && current_user.is_admin? %>
       <%= content_tag :li, :class => "dropdown" do %>
         <%= link_to "Admin", "#", :class => "dropdown-toggle" %>
         <%= content_tag :ul, :class => "dropdown-menu" do %>

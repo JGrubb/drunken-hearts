@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'faker'
   gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 # To use ActiveModel has_secure_password
