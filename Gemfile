@@ -32,6 +32,7 @@ gem 'jquery-ui-rails'
 group :development, :test do
   gem 'quiet_assets'
   gem 'rspec-rails'
+  gem 'guard-rspec'
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'factory_girl_rails'
