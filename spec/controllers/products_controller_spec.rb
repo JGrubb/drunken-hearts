@@ -3,18 +3,49 @@ require 'spec_helper'
 describe ProductsController do
 
   describe "GET show" do
-    it "assigns the product to @product"
-    it "renders the show template"
-    it "assigns the page title to @title"
+
+    let(:product) do
+      create(:product)
+    end
+
+    it "assigns the product to @product" do
+      get :show, id: product
+      expect(assigns(:product)).to eq product
+    end
+
+    it "renders the show template" do
+      get :show, id: product
+      expect(response).to render_template :show
+    end
+
+    it "assigns the page title to @title" do
+      get :show, id: product
+      expect(assigns(:title)).to eq "Awesome T Shirt"
+    end
   end
 
   describe "GET new" do
     context "Authorized user" do
+      login_admin
 
+      before :each do
+        get :new  
+      end
+
+      it "assigns a new product as @product" do
+        expect(assigns(:product)).to be_a_new(Product)
+      end
+
+      it "renders the new template" do
+        expect(response).to render_template :new
+      end
     end
 
     context "Random Joe" do
-
+      it "prevents Random Joe from getting to the new product page" do
+        get :new
+        expect(response).to redirect_to new_user_session_path
+      end
     end
   end
 

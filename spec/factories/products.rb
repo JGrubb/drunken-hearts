@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :product do
-    title "MyString"
-    description "MyText"
+    title "Awesome T Shirt"
+    description "Lorem Lorem Lorem"
     price 199
 
     factory :product_w_images do
