@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rb-fsevent'
   gem 'faker'
+  gem 'launchy'
 end
 
 # To use ActiveModel has_secure_password
