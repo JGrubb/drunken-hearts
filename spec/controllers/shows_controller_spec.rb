@@ -192,12 +192,8 @@ describe ShowsController do
       expect(:post => 'shows').to route_to(:controller => "shows", :action => "create")
     end
 
-    it "does not route to #index" do
-      expect(:get => 'shows').to_not route_to(:controller => "shows", :action => "index")
-    end
-
     it "does not route to #show" do
-      expect(:get => 'shows/1').to_not route_to(:controller => "shows", :action => "show", :id => "1")
+      expect(:get => 'shows/1').to_not be_routable
     end
   end
 end
