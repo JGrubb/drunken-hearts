@@ -6,7 +6,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-
+    @product = Product.new(product_params)
+    if @product.save
+      flash[:notice] = "Good job, that #{@product.title} is gonna sell like hotcakes."
+      redirect_to product_path(@product)
+    else
+      flash[:error] = "Problema"
+      render action: :new
+    end
   end
 
   def show

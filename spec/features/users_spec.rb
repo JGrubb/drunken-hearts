@@ -2,18 +2,18 @@ require 'spec_helper'
 
 feature 'User Management' do
   scenario "Lets Jimmy log in as an admin and sign out" do
-    jimmy = create :admin
-    
-    visit root_path
-    click_link 'login'
-    fill_in 'user[email]', with: jimmy.email
-    fill_in 'user[password]', with: jimmy.password
-    click_button 'Sign in'
+    sign_in_admin
 
-    #visit root_path
     expect(page).to have_content "Signed in successfully."
 
     click_link 'Logout'
     expect(page).to have_content "Signed out successfully."
+  end
+
+  scenario "Makes sure admins can see the admin menu" do
+    sign_in_admin
+
+    click_on "Admin"
+    expect(page).to have_link "Admin"
   end
 end
