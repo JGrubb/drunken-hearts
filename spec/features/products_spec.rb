@@ -9,7 +9,7 @@ feature "Product Management" do
       click_link 'New Product'
       fill_in 'Title', with: "Awesome T Shirt"
       fill_in 'Description', with: "Will get you plenty of tail"
-      attach_file :product_image, File.new("#{Rails.root}/spec/fixtures/files/img_01.jpg")
+      attach_file 'Image', "#{Rails.root}/spec/fixtures/files/img_01.jpg"
       click_button 'Create Product'
     }. to change(Product, :count).by 1
   end
@@ -19,6 +19,14 @@ feature "Product Management" do
     product = create :product_w_images
 
     visit product_path(product)
-    expect(page).to have_content "Awesome T Shirt"
+    within 'h3' do
+      expect(page).to have_content "Awesome T Shirt"
+    end
+    within '#description' do
+      expect(page).to have_content "Lorem Lorem Lorem"
+    end
+    within '#images' do
+      expect(page).to have_css('img')
+    end
   end
 end
