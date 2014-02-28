@@ -4,10 +4,10 @@ module Features
       jimmy = create :admin
       
       visit root_path
-      click_link 'login'
+      click_on 'login'
       fill_in 'user[email]', with: jimmy.email
       fill_in 'user[password]', with: jimmy.password
-      click_button 'Sign in'
+      click_on 'Sign in'
     end
   end
 end

@@ -1,0 +1,11 @@
+<div>
+  <h3><%= @product.title %></h3>
+  <div id="description">
+    <%= simple_format @product.description %>
+  </div>
+  <div id="images">
+    <% @product.product_images.each do |image| %>
+      <%= image_tag image.image_url(:med) %>
+    <% end %>
+  </div>
+</div>

@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    4.times { @product.product_images.build }
   end
 
   def create
@@ -22,11 +23,16 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
+    @product = Product.find(params[:id])
   end
 
   def update
-
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
