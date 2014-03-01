@@ -1,7 +1,7 @@
-<%= simple_form_for @product, multipart: true do |f| %>
+<%= simple_form_for @product do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= simple_fields_for :product_images do |i| %>
+  <%= f.simple_fields_for :product_images do |i| %>
     <%= i.input :image, as: :file %>
   <% end %>
   <%= f.button :submit %>

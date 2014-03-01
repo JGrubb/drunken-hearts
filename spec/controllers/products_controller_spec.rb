@@ -50,11 +50,57 @@ describe ProductsController do
   end
 
   describe "POST create" do
+    context "Autorized user" do
+      login_admin
 
+      it "creates a new product" do
+        expect {
+          create :product
+        }.to change(Product, :count).by 1
+      end
+
+      it "assigns a newly created product to @product" do
+        post :create, { :product => attributes_for(:product) }
+        expect(assigns(:product)).to be_a(Product)
+        expect(assigns(:product)).to be_persisted
+      end
+
+      it "redirects to the product's page" do
+        post :create, { :product => attributes_for(:product) }
+        expect(response).to redirect_to product_path(Product.last)
+      end
+    end
+
+    context "Random Joe" do
+      it "prevents Random Joe from creating a new Product" do
+        post :create, { :product => attributes_for(:product) }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
   end
 
   describe "GET edit" do
+    context "Authorized user" do
+      login_user
 
+      let(:product) do
+        create(:product)
+      end
+
+      it "assigns the requested product as @product" do
+        get :edit, :id => product.id
+        expect(assigns(:product)).to eq product
+      end
+
+      it "renders the edit template" do
+        get :edit, { :id => product.id }
+        expect(response).to render_template :edit
+      end
+    end
+
+    context "Random Joe" do
+      it "prevents RJ from accessing the products#edit page"
+    end
   end
 
   describe "PATCH update" do
