@@ -36,7 +36,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-
+    @product = Product.find(params[:id])
+    if @product.delete
+      flash[:notice] = "That product is gone now."
+      redirect_to store_index_path
+    else
+      flash[:error] = "That didn't work for some reason"
+      redirect_to product
+    end
   end
 
   private
