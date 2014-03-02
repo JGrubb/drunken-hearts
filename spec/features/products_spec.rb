@@ -38,8 +38,22 @@ feature "Product Management" do
 
     find_link('edit').click
     expect(page.find_field('Title').value).to eq product.title
+    expect(find_link("Back to #{product.title}"))
     within 'form' do
       expect(page.all(:css, 'img').count).to eq 3
     end
+  end
+
+  scenario "deleting a product", :js => true do
+    sign_in_admin
+    product = create :product
+    product2 = create :product
+
+    visit product_path(product)
+
+    find_link('delete').click
+    expect {
+      page.driver.accept_js_confirms!
+    }.to change(Product, :count).by -1
   end
 end

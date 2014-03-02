@@ -9,6 +9,8 @@
     <% end %>
   </div>
   <% if admin %>
-    <%= link_to 'edit', edit_product_path(@product), class: 'button' %>
+    <%= link_to 'edit', edit_product_path(@product), class: 'button' %> | 
+    <%= link_to 'delete', product_path(@product),
+        :data => { :method => :delete, :confirm => "Are ya sure Jimmy?" } %>
   <% end %>
 </div>
