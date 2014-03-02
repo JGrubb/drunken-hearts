@@ -2,7 +2,7 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.simple_fields_for :product_images do |i| %>
-    <%= i.input :image, as: :file %>
+    <%= render 'image_fields', :f => i %>
   <% end %>
   <%= f.button :submit %>
 <% end %>

@@ -8,4 +8,7 @@
       <%= image_tag image.image_url(:med) %>
     <% end %>
   </div>
+  <% if admin %>
+    <%= link_to 'edit', edit_product_path(@product), class: 'button' %>
+  <% end %>
 </div>

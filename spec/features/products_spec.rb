@@ -29,4 +29,15 @@ feature "Product Management" do
       expect(page).to have_css('img')
     end
   end
+
+  scenario "editing a product" do
+    sign_in_admin
+    product = create :product
+
+    visit product_path(product)
+
+    find_link('edit').click
+    expect(page.find_field('Title').value).to eq product.title
+    expect(page.find(:css, 'img').count).to eq 3
+  end
 end

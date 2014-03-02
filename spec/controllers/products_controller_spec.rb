@@ -80,15 +80,14 @@ describe ProductsController do
   end
 
   describe "GET edit" do
-    context "Authorized user" do
-      login_user
+    
 
-      let(:product) do
-        create(:product)
-      end
+    context "Authorized user" do
+      login_admin
+      let(:product) { create :product }
 
       it "assigns the requested product as @product" do
-        get :edit, :id => product.id
+        get :edit, { :id => product.id }
         expect(assigns(:product)).to eq product
       end
 

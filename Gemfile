@@ -25,6 +25,7 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'cocoon'
 
 group :development, :test do
   gem 'quiet_assets'
