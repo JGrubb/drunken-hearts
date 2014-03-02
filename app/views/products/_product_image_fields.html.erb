@@ -1,0 +1,6 @@
+<% if f.object.id.blank? %>
+  <%= f.input :image, as: :file %>
+<% else %>
+  <%= image_tag f.object.image_url(:thumb) %>
+  <%= link_to_remove_association "delete", f %>
+<% end %>
