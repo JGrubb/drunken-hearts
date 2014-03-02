@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @product.product_images.build
   end
 
   def update
@@ -50,6 +49,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :product_images_attributes => [:id, :image])
+    params.require(:product).permit(:title, :description, :product_images_attributes => [:id, :image, :_destroy])
   end
 end

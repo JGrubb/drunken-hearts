@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-fileupload/basic
+//= require cocoon
 //= require audiojs
 //= require_tree .
 

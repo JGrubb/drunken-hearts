@@ -1,7 +1,0 @@
-<% if f.object.id.blank? %>
-  <%= f.input :image, as: :file %>
-<% else %>
-  <%= image_tag f.object.image_url(:thumb) %>
-  <%= link_to "Delete?", product_image_path(f.object.id),
-      :data => { :method => :delete } %>
-<% end %>

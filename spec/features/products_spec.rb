@@ -19,7 +19,7 @@ feature "Product Management" do
     product = create :product_w_images
 
     visit product_path(product)
-    within 'h3' do
+    within 'h2' do
       expect(page).to have_content "Awesome T Shirt"
     end
     within '#description' do
@@ -32,12 +32,14 @@ feature "Product Management" do
 
   scenario "editing a product" do
     sign_in_admin
-    product = create :product
+    product = create :product_w_images
 
     visit product_path(product)
 
     find_link('edit').click
     expect(page.find_field('Title').value).to eq product.title
-    expect(page.find(:css, 'img').count).to eq 3
+    within 'form' do
+      expect(page.all(:css, 'img').count).to eq 3
+    end
   end
 end
