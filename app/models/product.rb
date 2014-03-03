@@ -4,4 +4,7 @@ class Product < ActiveRecord::Base
       :reject_if => lambda { |pi| pi[:image].blank? },
       :allow_destroy => true
   validates :title, :description, :presence => true
+
+  scope :published, -> { where(published: true) }
+
 end

@@ -4,11 +4,9 @@ class CreateProducts < ActiveRecord::Migration
       t.string :title
       t.string :download
       t.text :description
-      t.integer :price
-      t.string :slug
+      t.decimal :price, precision: 8, scale: 2
 
       t.timestamps
     end
-    add_index :products, :slug
   end
 end

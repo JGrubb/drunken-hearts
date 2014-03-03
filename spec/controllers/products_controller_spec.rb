@@ -118,14 +118,27 @@ describe ProductsController do
   end
 
   describe "DELETE destroy" do
-    let(:product) { create :product }
+
+    let!(:product) { create :product }
 
     context "Authorized user" do
+      login_admin
 
+      it "destroys the requested product" do
+        expect {
+          delete :destroy, { :id => product.id }
+        }.to change(Product, :count).by -1
+      end
+
+      it "redirects to the store path" do
+        delete :destroy, { :id => product.id }
+        expect(response).to redirect_to store_path
+      end
     end
 
     context "Random Joe" do
-
+      before(:each) { delete :destroy, { :id => product.id } }
+      it { expect(response).to redirect_to new_user_session_path }
     end
   end
 end

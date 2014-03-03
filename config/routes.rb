@@ -1,5 +1,6 @@
 Hearts::Application.routes.draw do
 
+  get "store" => 'store#index', :as => :store
   controller :pages do
     get "pages/index"
     get "shows"   => 'pages#shows',   :as => :shows

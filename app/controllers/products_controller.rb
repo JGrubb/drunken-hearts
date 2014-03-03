@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.delete
       flash[:notice] = "That product is gone now."
-      redirect_to store_index_path
+      redirect_to store_path
     else
       flash[:error] = "That didn't work for some reason"
       redirect_to product

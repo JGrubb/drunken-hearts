@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225220017) do
+ActiveRecord::Schema.define(version: 20140303022602) do
 
   create_table "photos", force: true do |t|
     t.string   "caption"
@@ -33,13 +33,11 @@ ActiveRecord::Schema.define(version: 20140225220017) do
     t.string   "title"
     t.string   "download"
     t.text     "description"
-    t.integer  "price"
-    t.string   "slug"
+    t.decimal  "price",       precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "published",                           default: false
   end
-
-  add_index "products", ["slug"], name: "index_products_on_slug"
 
   create_table "shows", force: true do |t|
     t.date     "date"

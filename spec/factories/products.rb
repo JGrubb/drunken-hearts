@@ -4,7 +4,8 @@ FactoryGirl.define do
   factory :product do
     title "Awesome T Shirt"
     description "Lorem Lorem Lorem"
-    price 199
+    price 9.99
+    published true
 
     factory :product_w_images do
       after(:build) do |product, evaluator|
