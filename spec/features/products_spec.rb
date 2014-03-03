@@ -9,6 +9,7 @@ feature "Product Management" do
       click_link 'New Product'
       fill_in 'Title', with: "Awesome T Shirt"
       fill_in 'Description', with: "Will get you plenty of tail"
+      fill_in 'Price', with: '9.99'
       attach_file 'Image', "#{Rails.root}/spec/fixtures/files/img_01.jpg"
       click_button 'Create Product'
     }. to change(Product, :count).by 1
@@ -24,6 +25,9 @@ feature "Product Management" do
     end
     within '#description' do
       expect(page).to have_content "Lorem Lorem Lorem"
+    end
+    within '#price' do
+      expect(page).to have_content "$9.99"
     end
     within '#images' do
       expect(page).to have_css('img')

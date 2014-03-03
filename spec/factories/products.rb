@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :product do
     title "Awesome T Shirt"
     description "Lorem Lorem Lorem"
-    price 9.99
+    price 999
     published true
 
     factory :product_w_images do

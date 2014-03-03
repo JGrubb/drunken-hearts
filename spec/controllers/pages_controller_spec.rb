@@ -32,7 +32,7 @@ describe PagesController do
       expect(assigns(:shows)).to_not include(@past_show)
     end
 
-    pending "makes damn sure that only today and future shows get in this list" do
+    it "makes damn sure that only today and future shows get in this list" do
       @show3 = create(:show_w_links, date: Date.today)
       @show4 = create(:show_w_links, date: Date.yesterday)
       expect(assigns(:shows).count).to eq 3

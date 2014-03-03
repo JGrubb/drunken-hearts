@@ -1,11 +1,13 @@
 <%= simple_form_for @product do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.input :price %>
   <%= f.simple_fields_for :product_images do |i| %>
     <%= render 'product_image_fields', :f => i %>
   <% end %>
   <div class="links">
     <%= link_to_add_association "Add image", f, :product_images %>
   </div>
+  <%= f.input :published, as: :radio_buttons %>
   <%= f.button :submit %>
 <% end %>

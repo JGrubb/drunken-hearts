@@ -1,4 +1,4 @@
-<div>
+<div id="product">
   <h2><%= @product.title %></h2>
   <div id="description">
     <%= simple_format @product.description %>
@@ -8,9 +8,12 @@
       <%= image_tag image.image_url(:med) %>
     <% end %>
   </div>
+  <p id="price"><%= number_to_currency @product.price %>
   <% if admin %>
-    <%= link_to 'edit', edit_product_path(@product), class: 'button' %> | 
-    <%= link_to 'delete', product_path(@product),
-        :data => { :method => :delete, :confirm => "Are ya sure Jimmy?" } %>
+    <div id="links">
+      <%= link_to 'edit', edit_product_path(@product), class: 'button' %> | 
+      <%= link_to 'delete', product_path(@product),
+          :data => { :method => :delete, :confirm => "Are ya sure Jimmy?" } %>
+    </div>
   <% end %>
 </div>

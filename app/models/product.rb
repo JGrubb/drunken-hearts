@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :product_images,
       :reject_if => lambda { |pi| pi[:image].blank? },
       :allow_destroy => true
-  validates :title, :description, :presence => true
+  validates :title, :description, :price, :presence => true
 
   scope :published, -> { where(published: true) }
 
