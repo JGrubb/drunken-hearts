@@ -3,8 +3,12 @@
   <% @products.each do |product| %>
     <div class="product">
       <h2><%= product.title %></h2>
+      <div class="description"><%= product.description %></div>
       <div class="image"><%= image_tag product.product_images.first.image_url(:med) %></div>
-      
+      <%= link_to 'Add to Cart', line_items_path(:product_id => product),
+          :data => { :method => :post }, 
+          :class => "button" %> | 
+      <%= link_to "Details", product_path(product), :class => "button" %>
     </div>
   <% end %>
 </div>

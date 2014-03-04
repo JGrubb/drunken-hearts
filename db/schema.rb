@@ -45,14 +45,17 @@ ActiveRecord::Schema.define(version: 20140304122347) do
   add_index "product_images", ["product_id"], name: "index_product_images_on_product_id"
 
   create_table "products", force: true do |t|
-    t.string   "title",                       null: false
+    t.string   "title"
     t.string   "download"
     t.text     "description"
-    t.integer  "price",                       null: false
+    t.integer  "price"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "published",   default: false
   end
+
+  add_index "products", ["slug"], name: "index_products_on_slug"
 
   create_table "shows", force: true do |t|
     t.date     "date"
