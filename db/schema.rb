@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140303022602) do
     t.string   "title",                       null: false
     t.string   "download"
     t.text     "description"
-    t.decimal  "integer",                     null: false
+    t.integer  "price",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "published",   default: false

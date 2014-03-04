@@ -8,7 +8,7 @@
       <%= image_tag image.image_url(:med) %>
     <% end %>
   </div>
-  <p id="price"><%= number_to_currency @product.price %>
+  <p id="price"><%= number_to_currency @product.price_in_dollars %>
   <% if admin %>
     <div id="links">
       <%= link_to 'edit', edit_product_path(@product), class: 'button' %> | 

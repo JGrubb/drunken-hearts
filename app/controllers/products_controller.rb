@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
       flash[:notice] = "Good job, that #{@product.title} is gonna sell like hotcakes."
       redirect_to product_path(@product)
     else
-      flash[:error] = "Problema"
       render action: :new
     end
   end
@@ -49,6 +48,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :published, :price, :product_images_attributes => [:id, :image, :_destroy])
+    params.require(:product).permit(:title, :description, :published, :price_in_dollars,
+        :product_images_attributes => [:id, :image, :_destroy])
   end
 end

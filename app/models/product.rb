@@ -7,4 +7,11 @@ class Product < ActiveRecord::Base
 
   scope :published, -> { where(published: true) }
 
+  def price_in_dollars
+    price.to_d / 100 if price
+  end
+
+  def price_in_dollars=(dollars)
+    self.price = dollars.to_d * 100 if dollars.present?
+  end
 end
