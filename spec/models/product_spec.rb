@@ -30,4 +30,10 @@ describe Product do
     product = create(:product_w_images)
     expect(product.product_images.count).to eq 3
   end
+
+  it "converts from dollars to cents for the database" do
+    product = create(:product, price: 999)
+    expect(product.price).to eq 999
+    expect(product.price_in_dollars).to eq 9.99
+  end
 end
