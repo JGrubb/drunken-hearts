@@ -2,11 +2,8 @@ require 'spec_helper'
 
 describe LineItemsController do
 
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
+  describe "POST 'create'" do
+    it "sets the cart and product id"
   end
 
 end

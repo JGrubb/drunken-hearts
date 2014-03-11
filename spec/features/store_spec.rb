@@ -12,7 +12,7 @@ feature "Shopping" do
   end
 
   scenario "Viewing the product detail page" do
-    product = create :product
+    product = create :product_w_images
 
     visit store_path
     within '.product' do

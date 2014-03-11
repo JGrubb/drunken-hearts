@@ -4,9 +4,9 @@ class LineItemsController < ApplicationController
     product = Product.find(params[:product_id])
     @line_item = @cart.line_items.build(:product => product)
     if @line_item.save
-      redirect_to(cart_path, :notice => "Added #{product.title} to cart!")
+      #redirect_to(cart_path, :notice => "Added #{product.title} to cart!")
     else
-      render :action => "new"
+      #render :action => "new"
     end
   end
 end

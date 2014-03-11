@@ -8,10 +8,10 @@
       <%= image_tag image.image_url(:med) %>
     <% end %>
   </div>
-  <p id="price"><%= number_to_currency @product.price_in_dollars %>
+  <p id="price"><%= number_to_currency @product.price_in_dollars %></p>
   <% if admin %>
     <div id="links">
-      <%= link_to 'edit', edit_product_path(@product), class: 'button' %> | 
+      <%= link_to 'edit', edit_product_path(@product), class: 'button' %> |
       <%= link_to 'delete', product_path(@product),
           :data => { :method => :delete, :confirm => "Are ya sure Jimmy?" } %>
     </div>
