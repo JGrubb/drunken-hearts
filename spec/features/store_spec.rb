@@ -8,7 +8,8 @@ feature "Shopping" do
     within(find(:css, '.product')) do
       click_on 'Add to Cart'
     end
-    expect(page).to have_content "Awesome T Shirt"
+    expect(page).to have_content "Added Awesome T Shirt to cart!"
+    #expect(current_user.cart.line_items.length).to be(1)
   end
 
   scenario "Viewing the product detail page" do
@@ -20,6 +21,6 @@ feature "Shopping" do
     end
     expect(page).to have_content "Awesome T Shirt"
     click_on 'Add to Cart'
-    expect(page).to have_content "Awesome T Shirt"
+    expect(page).to have_content "Added Awesome T Shirt to cart!"
   end
 end

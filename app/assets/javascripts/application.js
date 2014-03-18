@@ -21,4 +21,14 @@ jQuery(function($) {
   $('.dropdown').on('click', function(e) {
     $('ul.dropdown-menu', this).toggle();
   });
+  var show_ajax_message = function(msg, type) {
+    $("#flash").html('<div class="flash" id="' + type + '">' + msg + '</div>');
+    $("#flash div").delay(5000).fadeOut();
+  };
+
+  $(document).ajaxComplete(function(event, request) {
+    var msg = request.getResponseHeader('X-Message');
+    var type = request.getResponseHeader('X-Message-Type');
+    show_ajax_message(msg, type); //use whatever popup, notification or whatever plugin you want
+  });
 });

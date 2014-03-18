@@ -17,11 +17,7 @@
   </header>
   <div id="content">
     <div id="inner">
-      <% flash.each do |key, value| %>
-        <div class='flash' id='<%= key %>'>
-          <%= value %>
-        </div>
-      <% end %>
+      <%= render 'layouts/flash' %>
       <%= yield %>
     </div>
   </div>

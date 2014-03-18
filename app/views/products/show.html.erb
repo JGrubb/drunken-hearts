@@ -9,6 +9,11 @@
     <% end %>
   </div>
   <p id="price"><%= number_to_currency @product.price_in_dollars %></p>
+  <div class="actions">
+    <%= link_to 'Add to Cart', line_items_path(:product_id => @product),
+              :data => { :method => :post, :remote => true },
+              :class => "button" %>
+  </div>
   <% if admin %>
     <div id="links">
       <%= link_to 'edit', edit_product_path(@product), class: 'button' %> |
