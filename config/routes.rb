@@ -3,6 +3,7 @@ Hearts::Application.routes.draw do
   get "line_items/create"
   get "store" => 'store#index', :as => :store
   get "cart" => 'carts#show', :as => :cart
+  delete "cart" => 'carts#destroy'
   controller :pages do
     get "pages/index"
     get "shows"   => 'pages#shows',   :as => :shows
