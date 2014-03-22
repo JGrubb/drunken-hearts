@@ -31,4 +31,5 @@ jQuery(function($) {
     var type = request.getResponseHeader('X-Message-Type');
     show_ajax_message(msg, type); //use whatever popup, notification or whatever plugin you want
   });
+  //$('.add-to-cart').on('click', function(e) { e.preventDefault(); });
 });

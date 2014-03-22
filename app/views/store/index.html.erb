@@ -8,9 +8,11 @@
         <%= image_tag product.product_images.first.image_url(:med) %>
       </div>
 
-      <%= link_to 'Add to Cart', line_items_path(:product_id => product),
-          :data => { :method => :post, :remote => true },
-          :class => "button" %> |
+      <%= link_to 'Add to Cart', "",
+          :data => { 
+            'ng-click' => "addToCart(#{product.id})"
+          },
+          :class => "button add-to-cart" %> |
       <%= link_to "Details", product_path(product), :class => "button" %>
     </div>
   <% end %>

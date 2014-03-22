@@ -10,7 +10,6 @@ Menu
     <%= content_tag :li, link_to("Band", band_path, :class => "#{"active" if params[:action] == 'band'}") %>
     <%= content_tag :li, link_to("Contact", contact_path, :class => "#{"active" if params[:action] == 'contact'}") %>
     <%= content_tag :li, link_to("Store", store_path, :class => "#{"active" if params[:controller] == 'store'}") %>
-    <%= content_tag :li, link_to("My Cart", cart_path, :class => "#{"active" if params[:controller] == 'cart'}") %>
     <% if user_signed_in? && current_user.is_admin? %>
       <%= content_tag :li, :class => "dropdown" do %>
         <%= link_to "Admin", "#", :class => "dropdown-toggle" %>

@@ -1,0 +1,22 @@
+<div id="cart" ng-view>
+  <div ng-show="!cart.line_items.length">
+    <%= image_tag('cart-white.png') %>
+  </div>
+  <div ng-show="cart.line_items" ng-click="showCart = !showCart">
+    <%= image_tag('cart-full-white.png') %>
+  </div>
+  <div ng-show="showCart" id="cart-detail">
+    <table style="color: white">
+      <tr ng-repeat="item in cart.line_items">
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.product.title }}</td>
+        <td>{{ item.total_price }}</td>
+      </tr>
+      <tr>
+        <td colspan="2">total:</td>
+        <td>{{ cart.total_price }}</td>
+      </tr>
+    </table>
+    <a href="#" ng-click="clearCart()">Empty Cart</a>
+  </div>
+</div>

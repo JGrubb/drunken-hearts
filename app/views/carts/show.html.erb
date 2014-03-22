@@ -5,12 +5,14 @@
     <th>Item</th>
     <th>Price</th>
   </tr>
-  <% @cart.line_items.each do |item| %>
-  <tr>
-    <td><%= item.quantity %></td>
-    <td><%= item.product.title %></td>
-    <td><%= number_to_currency item.total_price %></td>
-  </tr>
+  <% if @cart.line_items.any? %>
+    <% @cart.line_items.each do |item| %>
+    <tr>
+      <td><%= item.quantity %></td>
+      <td><%= item.product.title %></td>
+      <td><%= number_to_currency item.total_price %></td>
+    </tr>
+    <% end %>
   <% end %>
   <tr id="total">
     <td colspan="2">Total</td>

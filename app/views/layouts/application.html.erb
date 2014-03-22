@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html class="<%= @html_class %>">
+<html class="<%= @html_class %>" ng-app="heartsApp">
 <head>
   <title><%= title %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="iwsFCPAGB7-_w0NDHNCZE-ol0Kuurr9L8uDp1V-YXog" />
 </head>
 <body>
+<div id="main" ng-controller="mainController">
   <header>
+    <%= render 'layouts/cart' %>
     <%= render 'layouts/nav'%>
     <div id="logo">
       <%= link_to content_tag(:h1, "the Drunken Hearts"), root_path %>
@@ -21,6 +22,7 @@
       <%= yield %>
     </div>
   </div>
+</div>
   <footer>
     <p class="credits"><%= link_to "design by Signè", "#" %> | <%= link_to "site by IBD", "http://www.ignoredbydinosaurs.com" %></p>
   </footer>
@@ -34,5 +36,7 @@
     ga('create', 'UA-41991179-1', 'thedrunkenhearts.com');
     ga('send', 'pageview');
   </script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>
