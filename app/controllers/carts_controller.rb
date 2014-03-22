@@ -11,7 +11,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(store_url, :notice => "Your cart is empty") }
-      format.json { head :ok }
+      format.json { render :json => {} }
     end
   end
 end

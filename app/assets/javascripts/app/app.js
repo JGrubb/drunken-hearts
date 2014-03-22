@@ -26,9 +26,17 @@ angular.module('heartsApp').
       };
 
       $scope.clearCart = function() {
+        console.log('firing');
         $http({
           method: 'DELETE',
-          url: '/cart'
+          url: '/cart.json',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        }).
+        success(function(data) {
+          $scope.cart = data;
+          $scope.showCart = false;
         });
       }
     }]);

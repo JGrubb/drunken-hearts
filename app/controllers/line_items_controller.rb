@@ -4,7 +4,6 @@ class LineItemsController < ApplicationController
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product.id)
     if @line_item.save
-      flash[:notice] = "Added #{product.title} to cart!"
       render template: 'carts/show.json.jbuilder'
     else
       render :action => "new"
