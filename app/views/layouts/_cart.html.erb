@@ -1,9 +1,9 @@
 <div id="cart" ng-view>
   <div ng-show="!cart.line_items.length">
-    <%= image_tag('cart-white.png') %>
+    <%= image_tag('cart_white.png') %>
   </div>
   <div ng-show="cart.line_items" ng-click="showCart = !showCart">
-    <%= image_tag('cart-full-white.png') %>
+    <%= image_tag('cart_full_white.png') %>
   </div>
   <div ng-show="showCart" id="cart-detail">
     <table style="color: white">
