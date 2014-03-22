@@ -1,4 +1,4 @@
-angular.module('heartsApp', []);
+angular.module('heartsApp', ['ngAnimate']);
 
 angular.module('heartsApp').
   config(['$httpProvider', function(provider) {

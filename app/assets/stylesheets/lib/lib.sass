@@ -20,3 +20,28 @@
   font-style: normal
   
 $orange: #c37f63
+
+// keyframes mixin
+@mixin keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @-o-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+@include keyframes(fadeout)
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+
+@include keyframes(fadein)
+  0%
+    opacity: 0
+  100%
+    opacity: 1

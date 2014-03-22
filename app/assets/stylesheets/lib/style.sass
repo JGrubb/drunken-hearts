@@ -41,6 +41,23 @@ h2
   left: 1em
   top: 1em
 
+.cart-status
+  transition: all .3s
+  opacity: 1
+
+.cart-status.ng-hide-add,
+.cart-status.ng-hide-remove
+  opacity: 0
+//.cart-status.ng-hide-add
+//  animation: .3s fadein
+//  @each $b in webkit, moz, ms, o
+//    -#{$b}-animation: .3s fadein
+//
+//.cart-status.ng-hide-remove
+//  animation: .3s fadeout
+//  @each $b in webkit, moz, ms, o
+//    -#{$b}-animation: .3s fadeout
+
 a.login
   color: white
   position: fixed
