@@ -1,5 +1,6 @@
 Hearts::Application.routes.draw do
 
+  get "order/new"
   get "line_items/create"
   get "store" => 'store#index', :as => :store
   get "cart" => 'carts#show', :as => :cart
@@ -22,6 +23,8 @@ Hearts::Application.routes.draw do
   resources :products, except: [ :index ]
 
   resources :line_items, only: [:create, :update, :delete]
+
+  resources :orders
 
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 

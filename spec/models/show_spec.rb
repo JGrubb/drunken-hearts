@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: shows
+#
+#  id           :integer          not null, primary key
+#  date         :date
+#  venue        :string(255)
+#  city         :string(255)
+#  venue_link   :string(255)
+#  info         :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  tickets_link :string(255)
+#
+
 require 'spec_helper'
 
 describe Show do

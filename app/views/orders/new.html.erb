@@ -1,0 +1,6 @@
+<h1>Checkout!</h1>
+  <%= simple_form_for @order do |f| %>
+    <%= f.input :email %>
+    <%= f.input :address %>
+    <%= f.button :submit, :value => "Confirm details" %>
+  <% end %>

@@ -16,6 +16,10 @@ gem 'sidekiq'
 gem 'thin'
 gem 'sitemap_generator'
 gem 'exception_notification'
+gem 'stripe', '~> 1.8.3'
+gem 'paper_trail', '~> 3.0.1'
+gem 'rails-settings-cached', '~> 0.4.0'
+gem 'aasm'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,6 +32,7 @@ gem 'jquery-ui-rails'
 gem 'cocoon'
 
 group :development, :test do
+  gem 'annotate'
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'guard-rspec'

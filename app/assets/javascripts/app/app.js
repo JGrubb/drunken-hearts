@@ -9,6 +9,7 @@ angular.module('heartsApp').
       var cart;
 
       $http.get('/cart.json').success(function(data) {
+        console.log(data);
         $scope.cart = data;
       });
 
