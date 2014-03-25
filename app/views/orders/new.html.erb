@@ -1,4 +1,16 @@
 <h1>Checkout!</h1>
+  <table>
+    <h2>Order details</h2>
+    <% @cart.line_items.each do | item| %>
+      <tr>
+        <td><%= item.quantity %></td>
+        <td><%= item.product.title %></td>
+        <td><%= item.total_price %></td>
+      </tr>
+    <% end %>
+    <tr>
+    </tr>
+  </table>
   <%= simple_form_for @order do |f| %>
     <%= f.input :email %>
     <%= f.input :address %>

@@ -25,6 +25,7 @@ Hearts::Application.routes.draw do
   resources :line_items, only: [:create, :update, :delete]
 
   resources :orders
+  get 'orders/confirm/:guid' => 'orders#confirm', :as => :order_confirmation
 
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 

@@ -1,0 +1,6 @@
+<h1>HI!</h1>
+<%= @order.email %>
+
+<% @order.line_items.each do |item| %>
+  <%= debug item %>
+<% end %>

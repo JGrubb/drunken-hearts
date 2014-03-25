@@ -16,7 +16,9 @@ class Order < ActiveRecord::Base
   has_paper_trail
   include AASM
 
-  private
+  validates_presence_of :email
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+
 
   aasm column: 'state' do
     state :pending, :initial => true
@@ -63,7 +65,7 @@ class Order < ActiveRecord::Base
     self.guid = SecureRandom.uuid
   end
 
-  def add_line_items_to_cart(cart)
+  def add_line_items_from_cart(cart)
     cart.line_items.each do |item|
       item.cart_id = nil
       line_items << item
