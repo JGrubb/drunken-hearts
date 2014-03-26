@@ -26,6 +26,7 @@ Hearts::Application.routes.draw do
 
   resources :orders
   get 'orders/confirm/:guid' => 'orders#confirm', :as => :order_confirmation
+  post 'orders/confirm/:guid' => 'orders#purchase', :as => :purchase
 
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register' }
 

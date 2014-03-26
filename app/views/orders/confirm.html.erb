@@ -1,6 +1,22 @@
-<h1>HI!</h1>
+<h1>Confirm</h1>
 <%= @order.email %>
 
-<% @order.line_items.each do |item| %>
-  <%= debug item %>
+<table>
+  <h2>Order details</h2>
+  <% @order.line_items.each do | item| %>
+    <tr>
+      <td><%= item.quantity %></td>
+      <td><%= item.product.title %></td>
+      <td><%= item.total_price %></td>
+    </tr>
+  <% end %>
+  <tr>
+  </tr>
+</table>
+<%= form_tag purchase_path(permalink: @order.guid) do %>
+  <script src="https://checkout.stripe.com/v2/checkout.js"
+    class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="<%= @order.email %>"
+    data-amount="<%= @order.total %>"></script>
 <% end %>

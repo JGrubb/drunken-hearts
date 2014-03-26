@@ -1,0 +1,12 @@
+<table>
+  <h2>Order details</h2>
+  <% @cart.line_items.each do | item| %>
+    <tr>
+      <td><%= item.quantity %></td>
+      <td><%= item.product.title %></td>
+      <td><%= item.total_price %></td>
+    </tr>
+  <% end %>
+  <tr>
+  </tr>
+</table>

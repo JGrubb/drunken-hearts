@@ -12,6 +12,7 @@
 
 class Order < ActiveRecord::Base
   has_many :line_items
+  has_many :products, :through => :line_items
   before_create :populate_guid
   has_paper_trail
   include AASM
@@ -73,7 +74,11 @@ class Order < ActiveRecord::Base
   end
 
   def total
-    line_items.sum(:price)
+    sum = 0
+    line_items.each do |item|
+      sum = sum + item.price
+    end
+    sum
   end
 
 end

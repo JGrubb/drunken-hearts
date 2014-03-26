@@ -19,4 +19,8 @@ class LineItem < ActiveRecord::Base
   def total_price
     (product.price * quantity).to_f / 100
   end
+
+  def price
+    product.price * quantity
+  end
 end

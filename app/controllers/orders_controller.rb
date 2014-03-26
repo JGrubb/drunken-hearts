@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_filter :admin_only, :except => [:new, :create]
+  before_filter :admin_only, :except => [:new, :create, :confirm, :purchase, :show]
   def new
     @cart = current_cart
     if @cart.line_items.empty?
@@ -27,8 +27,23 @@ class OrdersController < ApplicationController
 
   def confirm
     @order = Order.find_by(:guid => params[:guid])
-    #  Cart.destroy(session[:cart_id])
-    #  session[:cart_id] = nil
+  end
+
+  def purchase
+    @order = Order.find_by(:guid => params[:guid])
+    @order.charge_card
+    sale = @order.create(
+      amount:       @order.total,
+      email:        params[:email],
+      stripe_token: params[:stripeToken]
+    )
+    sale.process!
+    if sale.finished?
+      redirect_to show_order_url(guid: order.guid)
+    else
+      flash.now[:alert] = sale.error
+      render :new
+    end
   end
 
   def index
