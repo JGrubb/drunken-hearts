@@ -20,7 +20,6 @@ class Order < ActiveRecord::Base
   validates_presence_of :email
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-
   aasm column: 'state' do
     state :pending, :initial => true
     state :processing
@@ -44,10 +43,10 @@ class Order < ActiveRecord::Base
     begin
       save!
       charge = Stripe::Charge.create(
-        amount = self.total,
-        currency = 'USD',
-        card = self.stripe_token,
-        description = self.email
+        :amount => self.total,
+        :currency => "USD",
+        :card => self.stripe_token,
+        :description => self.email
       )
       balance = Stripe::BalanceTransaction.retrieve(charge.balance_transaction)
       self.update(

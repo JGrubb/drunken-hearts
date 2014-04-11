@@ -31,15 +31,10 @@ class OrdersController < ApplicationController
 
   def purchase
     @order = Order.find_by(:guid => params[:guid])
-    @order.charge_card
-    sale = @order.create(
-      amount:       @order.total,
-      email:        params[:email],
-      stripe_token: params[:stripeToken]
-    )
-    sale.process!
-    if sale.finished?
-      redirect_to show_order_url(guid: order.guid)
+    @order.stripe_token = params[:stripeToken]
+    @order.process!
+    if @order.finished?
+      redirect_to order_url(@order.guid)
     else
       flash.now[:alert] = sale.error
       render :new
