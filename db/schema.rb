@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20140323162827) do
   create_table "photos", force: true do |t|
     t.string   "caption"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "product_images", force: true do |t|
@@ -62,17 +62,14 @@ ActiveRecord::Schema.define(version: 20140323162827) do
   add_index "product_images", ["product_id"], name: "index_product_images_on_product_id"
 
   create_table "products", force: true do |t|
-    t.string   "title"
+    t.string   "title",                       null: false
     t.string   "download"
     t.text     "description"
-    t.integer  "price"
-    t.string   "slug"
+    t.integer  "price",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "published",   default: false
   end
-
-  add_index "products", ["slug"], name: "index_products_on_slug"
 
   create_table "settings", force: true do |t|
     t.string   "var",                   null: false
@@ -91,16 +88,16 @@ ActiveRecord::Schema.define(version: 20140323162827) do
     t.string   "city"
     t.string   "venue_link"
     t.text     "info"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "tickets_link"
   end
 
   create_table "songs", force: true do |t|
     t.string   "title"
     t.string   "recording"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -114,8 +111,8 @@ ActiveRecord::Schema.define(version: 20140323162827) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "is_admin",               default: false
   end
 
