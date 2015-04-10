@@ -27,7 +27,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier'
 
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
 
 group :development, :test do
   gem 'quiet_assets'
